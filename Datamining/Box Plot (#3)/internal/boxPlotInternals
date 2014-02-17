@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="boxPlotInternals">
+<entry key="numberOf" type="xint" value="6"/>
+<config key="colSpec0">
+<entry key="column_name" type="xstring" value="sepal length"/>
+<config key="element_names">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<config key="column_type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
+</config>
+<config key="column_domain">
+<config key="lower_bound">
+<entry key="datacell" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
+<config key="org.knime.core.data.def.DoubleCell">
+<entry key="DoubleCell" type="xdouble" value="4.3"/>
+</config>
+</config>
+<config key="upper_bound">
+<entry key="datacell" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
+<config key="org.knime.core.data.def.DoubleCell">
+<entry key="DoubleCell" type="xdouble" value="7.9"/>
+</config>
+</config>
+</config>
+<config key="column_properties"/>
+</config>
+<config key="colSpec1">
+<entry key="column_name" type="xstring" value="sepal width"/>
+<config key="element_names">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<config key="column_type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
+</config>
+<config key="column_domain">
+<config key="lower_bound">
+<entry key="datacell" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
+<config key="org.knime.core.data.def.DoubleCell">
+<entry key="DoubleCell" type="xdouble" value="2.0"/>
+</config>
+</config>
+<config key="upper_bound">
+<entry key="datacell" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
+<config key="org.knime.core.data.def.DoubleCell">
+<entry key="DoubleCell" type="xdouble" value="4.4"/>
+</config>
+</config>
+</config>
+<config key="column_properties"/>
+</config>
+<config key="colSpec2">
+<entry key="column_name" type="xstring" value="petal length"/>
+<config key="element_names">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<config key="column_type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
+</config>
+<config key="column_domain">
+<config key="lower_bound">
+<entry key="datacell" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
+<config key="org.knime.core.data.def.DoubleCell">
+<entry key="DoubleCell" type="xdouble" value="1.0"/>
+</config>
+</config>
+<config key="upper_bound">
+<entry key="datacell" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
+<config key="org.knime.core.data.def.DoubleCell">
+<entry key="DoubleCell" type="xdouble" value="6.9"/>
+</config>
+</config>
+</config>
+<config key="column_properties"/>
+</config>
+<config key="colSpec3">
+<entry key="column_name" type="xstring" value="petal width"/>
+<config key="element_names">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<config key="column_type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
+</config>
+<config key="column_domain">
+<config key="lower_bound">
+<entry key="datacell" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
+<config key="org.knime.core.data.def.DoubleCell">
+<entry key="DoubleCell" type="xdouble" value="0.1"/>
+</config>
+</config>
+<config key="upper_bound">
+<entry key="datacell" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
+<config key="org.knime.core.data.def.DoubleCell">
+<entry key="DoubleCell" type="xdouble" value="2.5"/>
+</config>
+</config>
+</config>
+<config key="column_properties"/>
+</config>
+<config key="colSpec4">
+<entry key="column_name" type="xstring" value="PCA dimension 0"/>
+<config key="element_names">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<config key="column_type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
+</config>
+<config key="column_domain">
+<config key="lower_bound">
+<entry key="datacell" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
+<config key="org.knime.core.data.def.DoubleCell">
+<entry key="DoubleCell" type="xdouble" value="-1.5329353186144459"/>
+</config>
+</config>
+<config key="upper_bound">
+<entry key="datacell" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
+<config key="org.knime.core.data.def.DoubleCell">
+<entry key="DoubleCell" type="xdouble" value="1.9863920684415157"/>
+</config>
+</config>
+</config>
+<config key="column_properties"/>
+</config>
+<config key="colSpec5">
+<entry key="column_name" type="xstring" value="PCA dimension 1"/>
+<config key="element_names">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<config key="column_type">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
+</config>
+<config key="column_domain">
+<config key="lower_bound">
+<entry key="datacell" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
+<config key="org.knime.core.data.def.DoubleCell">
+<entry key="DoubleCell" type="xdouble" value="-1.3257070436077134"/>
+</config>
+</config>
+<config key="upper_bound">
+<entry key="datacell" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
+<config key="org.knime.core.data.def.DoubleCell">
+<entry key="DoubleCell" type="xdouble" value="1.124947792076717"/>
+</config>
+</config>
+</config>
+<config key="column_properties"/>
+</config>
+<config key="statssepal length">
+<entry key="array-size" type="xint" value="7"/>
+<entry key="0" type="xdouble" value="4.3"/>
+<entry key="1" type="xdouble" value="4.3"/>
+<entry key="2" type="xdouble" value="5.1"/>
+<entry key="3" type="xdouble" value="5.8"/>
+<entry key="4" type="xdouble" value="6.4"/>
+<entry key="5" type="xdouble" value="7.9"/>
+<entry key="6" type="xdouble" value="7.9"/>
+</config>
+<config key="mildrowsepal length"/>
+<config key="mildsepal length">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<config key="extremerowsepal length"/>
+<config key="extremesepal length">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<config key="statssepal width">
+<entry key="array-size" type="xint" value="7"/>
+<entry key="0" type="xdouble" value="2.0"/>
+<entry key="1" type="xdouble" value="2.2"/>
+<entry key="2" type="xdouble" value="2.8"/>
+<entry key="3" type="xdouble" value="3.0"/>
+<entry key="4" type="xdouble" value="3.3"/>
+<entry key="5" type="xdouble" value="4.0"/>
+<entry key="6" type="xdouble" value="4.4"/>
+</config>
+<config key="mildrowsepal width">
+<config key="mildrowsepal width0">
+<entry key="array-size" type="xint" value="1"/>
+<entry key="0" type="xstring" value="Row60"/>
+</config>
+<config key="mildrowsepal width1">
+<entry key="array-size" type="xint" value="1"/>
+<entry key="0" type="xstring" value="Row32"/>
+</config>
+<config key="mildrowsepal width2">
+<entry key="array-size" type="xint" value="1"/>
+<entry key="0" type="xstring" value="Row33"/>
+</config>
+<config key="mildrowsepal width3">
+<entry key="array-size" type="xint" value="1"/>
+<entry key="0" type="xstring" value="Row15"/>
+</config>
+</config>
+<config key="mildsepal width">
+<entry key="array-size" type="xint" value="4"/>
+<entry key="0" type="xdouble" value="2.0"/>
+<entry key="1" type="xdouble" value="4.1"/>
+<entry key="2" type="xdouble" value="4.2"/>
+<entry key="3" type="xdouble" value="4.4"/>
+</config>
+<config key="extremerowsepal width"/>
+<config key="extremesepal width">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<config key="statspetal length">
+<entry key="array-size" type="xint" value="7"/>
+<entry key="0" type="xdouble" value="1.0"/>
+<entry key="1" type="xdouble" value="1.0"/>
+<entry key="2" type="xdouble" value="1.6"/>
+<entry key="3" type="xdouble" value="4.35"/>
+<entry key="4" type="xdouble" value="5.1"/>
+<entry key="5" type="xdouble" value="6.9"/>
+<entry key="6" type="xdouble" value="6.9"/>
+</config>
+<config key="mildrowpetal length"/>
+<config key="mildpetal length">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<config key="extremerowpetal length"/>
+<config key="extremepetal length">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<config key="statspetal width">
+<entry key="array-size" type="xint" value="7"/>
+<entry key="0" type="xdouble" value="0.1"/>
+<entry key="1" type="xdouble" value="0.1"/>
+<entry key="2" type="xdouble" value="0.3"/>
+<entry key="3" type="xdouble" value="1.3"/>
+<entry key="4" type="xdouble" value="1.8"/>
+<entry key="5" type="xdouble" value="2.5"/>
+<entry key="6" type="xdouble" value="2.5"/>
+</config>
+<config key="mildrowpetal width"/>
+<config key="mildpetal width">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<config key="extremerowpetal width"/>
+<config key="extremepetal width">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<config key="statsPCA dimension 0">
+<entry key="array-size" type="xint" value="7"/>
+<entry key="0" type="xdouble" value="-1.5329353186144459"/>
+<entry key="1" type="xdouble" value="-1.5329353186144459"/>
+<entry key="2" type="xdouble" value="-0.7696799673132034"/>
+<entry key="3" type="xdouble" value="-0.017153228724246454"/>
+<entry key="4" type="xdouble" value="0.5764578613017783"/>
+<entry key="5" type="xdouble" value="1.9863920684415157"/>
+<entry key="6" type="xdouble" value="1.9863920684415157"/>
+</config>
+<config key="mildrowPCA dimension 0"/>
+<config key="mildPCA dimension 0">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<config key="extremerowPCA dimension 0"/>
+<config key="extremePCA dimension 0">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+<config key="statsPCA dimension 1">
+<entry key="array-size" type="xint" value="7"/>
+<entry key="0" type="xdouble" value="-1.3257070436077134"/>
+<entry key="1" type="xdouble" value="-0.9844453878395065"/>
+<entry key="2" type="xdouble" value="-0.2700238870407163"/>
+<entry key="3" type="xdouble" value="0.03440674642068763"/>
+<entry key="4" type="xdouble" value="0.26007847333503104"/>
+<entry key="5" type="xdouble" value="0.8683644425088803"/>
+<entry key="6" type="xdouble" value="1.124947792076717"/>
+</config>
+<config key="mildrowPCA dimension 1">
+<config key="mildrowPCA dimension 10">
+<entry key="array-size" type="xint" value="1"/>
+<entry key="0" type="xstring" value="Row15"/>
+</config>
+<config key="mildrowPCA dimension 11">
+<entry key="array-size" type="xint" value="1"/>
+<entry key="0" type="xstring" value="Row33"/>
+</config>
+<config key="mildrowPCA dimension 12">
+<entry key="array-size" type="xint" value="1"/>
+<entry key="0" type="xstring" value="Row60"/>
+</config>
+</config>
+<config key="mildPCA dimension 1">
+<entry key="array-size" type="xint" value="3"/>
+<entry key="0" type="xdouble" value="-1.3257070436077134"/>
+<entry key="1" type="xdouble" value="-1.1094897139222917"/>
+<entry key="2" type="xdouble" value="1.124947792076717"/>
+</config>
+<config key="extremerowPCA dimension 1"/>
+<config key="extremePCA dimension 1">
+<entry key="array-size" type="xint" value="0"/>
+</config>
+</config>

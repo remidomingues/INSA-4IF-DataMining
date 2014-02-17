@@ -1,0 +1,22 @@
+Bear Data
+
+    * Information about Bear Data
+    * bears.XLS - Excel file
+    * bears.csv - CSV file
+    * bears.TXT - Text file
+
+143 wild bears were anesthetized, and their bodies were measured and weighed.  One goal of the study was to make a table (or perhaps a set of tables) for hunters, so they could estimate the weight of a bear based on other measurements.   This would be used because in the forest it is easier to measure the length of a bear, for example, than it is to weigh it. 
+
+This data set was supplied by Gary Alt.  Entertaining references are in Reader's Digest April, 1979, and Sports Afield September, 1981.
+
+The nine variables in the data set are:
+
+    Age 	Bear's age, in months.  Estimated by an expert.
+    Month 	Month when the measurement was made. 1 = Jan., 2 = Feb., 12 = Dec.
+    Sex 	1 = male, 2 = female
+    Headlen 	Length of the head, in inches
+    Headwth 	Width of the head, in inches
+    Neck 	Girth (distance around) the neck, in inches
+    Length 	Body length, in inches
+    Chest 	Girth (distance around) the chest, in inches
+    Weight 	Weight of the bear, in pounds
