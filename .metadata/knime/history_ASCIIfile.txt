@@ -1,0 +1,2 @@
+file:/home/deeper/Documents/INSA/4IF/Hexanome/datamining/Projet/Projet%20FLICKR%20-%20DВcouverte%20de%20points%20d%20interets/flickr.csv
+file:/C:/temp/Datamining/Projet/Projet%20FLICKR%20-%20Découverte%20de%20points%20d%20interets/flickr.csv

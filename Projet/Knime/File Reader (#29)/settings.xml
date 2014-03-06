@@ -12,19 +12,19 @@
 <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
 </config>
 <config key="model">
-<entry key="DataURL" type="xstring" value="file:/C:/temp/Datamining/Projet/Projet%20FLICKR%20-%20Découverte%20de%20points%20d%20interets/flickr.csv"/>
+<entry key="DataURL" type="xstring" value="file:/home/deeper/Documents/INSA/4IF/Hexanome/datamining/Projet/Projet%20FLICKR%20-%20DВcouverte%20de%20points%20d%20interets/flickr.csv"/>
 <config key="Delimiters">
 <config key="Delim0">
-<entry key="pattern" type="xstring" value="%%00010"/>
-<entry key="combineMultiple" type="xboolean" value="true"/>
-<entry key="includeInToken" type="xboolean" value="false"/>
-<entry key="returnAsToken" type="xboolean" value="true"/>
-</config>
-<config key="Delim1">
 <entry key="pattern" type="xstring" value="%%00009"/>
 <entry key="combineMultiple" type="xboolean" value="false"/>
 <entry key="includeInToken" type="xboolean" value="false"/>
 <entry key="returnAsToken" type="xboolean" value="false"/>
+</config>
+<config key="Delim1">
+<entry key="pattern" type="xstring" value="%%00010"/>
+<entry key="combineMultiple" type="xboolean" value="true"/>
+<entry key="includeInToken" type="xboolean" value="false"/>
+<entry key="returnAsToken" type="xboolean" value="true"/>
 </config>
 </config>
 <config key="Quotes"/>
@@ -64,7 +64,7 @@
 <entry key="MissValuePattern" type="xstring" isnull="true" value=""/>
 <entry key="ReadPossValsFromFile" type="xboolean" value="false"/>
 <entry key="SkipThisColumn" type="xboolean" value="false"/>
-<entry key="ColumnName" type="xstring" value="%%65279id"/>
+<entry key="ColumnName" type="xstring" value="id"/>
 <config key="ColumnClass">
 <entry key="cell_class" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
 <entry key="is_null" type="xboolean" value="false"/>
@@ -227,18 +227,21 @@
 </config>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
-<entry key="state" type="xstring" value="CONFIGURED"/>
+<entry key="state" type="xstring" value="EXECUTED"/>
 <entry key="name" type="xstring" value="File Reader"/>
-<entry key="hasContent" type="xboolean" value="false"/>
+<entry key="hasContent" type="xboolean" value="true"/>
 <entry key="isInactive" type="xboolean" value="false"/>
 <config key="ports">
 <config key="port_1">
 <entry key="index" type="xint" value="1"/>
-<entry key="port_dir_location" type="xstring" isnull="true" value=""/>
+<entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
+<entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
+<entry key="port_object_summary" type="xstring" value="Rows: 83158, Cols: 15"/>
+<entry key="port_dir_location" type="xstring" value="port_1"/>
 </config>
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" isnull="true" value=""/>
+<entry key="file_store_id" type="xstring" value="7d8dcdb1-131f-4753-a14e-f7332767351e"/>
 </config>
 </config>

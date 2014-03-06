@@ -24,11 +24,7 @@
 <entry key="max_nominal_values" type="xint" value="60"/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
-<entry key="state" type="xstring" value="IDLE"/>
-<config key="nodecontainer_message">
-<entry key="type" type="xstring" value="WARNING"/>
-<entry key="message" type="xstring" value="No columns to visualize are available! Please refer to the NodeDescription to find out why!"/>
-</config>
+<entry key="state" type="xstring" value="CONFIGURED"/>
 <entry key="name" type="xstring" value="Scatter Plot"/>
 <entry key="hasContent" type="xboolean" value="false"/>
 <entry key="isInactive" type="xboolean" value="false"/>

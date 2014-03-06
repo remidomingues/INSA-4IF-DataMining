@@ -40,7 +40,11 @@
 <entry key="randomSeed" type="xint" value="0"/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
-<entry key="state" type="xstring" value="CONFIGURED"/>
+<entry key="state" type="xstring" value="IDLE"/>
+<config key="nodecontainer_message">
+<entry key="type" type="xstring" value="WARNING"/>
+<entry key="message" type="xstring" value="Input table does not match selected columns, unable to find column(s): [%%65279id]"/>
+</config>
 <entry key="name" type="xstring" value="Fuzzy c-Means"/>
 <entry key="hasContent" type="xboolean" value="false"/>
 <entry key="isInactive" type="xboolean" value="false"/>

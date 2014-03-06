@@ -15,21 +15,26 @@
 <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
 </config>
 <config key="model">
-<entry key="Serialized Weka-Clusterer" type="xstring" value="rO0ABXNyABZ3ZWthLmNsdXN0ZXJlcnMuREJTQ0FO6N9orCpBHvACAApJAAljbHVzdGVySUREAAtlbGFwc2VkVGltZUQAB2Vwc2lsb25JAAltaW5Qb2ludHNJABludW1iZXJPZkdlbmVyYXRlZENsdXN0ZXJzSQAUcHJvY2Vzc2VkX0luc3RhbmNlSURMAAhkYXRhYmFzZXQAN0x3ZWthL2NsdXN0ZXJlcnMvZm9yT1BUSUNTQW5kREJTY2FuL0RhdGFiYXNlcy9EYXRhYmFzZTtMAA1kYXRhYmFzZV9UeXBldAASTGphdmEvbGFuZy9TdHJpbmc7TAAVZGF0YWJhc2VfZGlzdGFuY2VUeXBlcQB+AAJMABtyZXBsYWNlTWlzc2luZ1ZhbHVlc19GaWx0ZXJ0ADpMd2VrYS9maWx0ZXJzL3Vuc3VwZXJ2aXNlZC9hdHRyaWJ1dGUvUmVwbGFjZU1pc3NpbmdWYWx1ZXM7eHIAIXdla2EuY2x1c3RlcmVycy5BYnN0cmFjdENsdXN0ZXJlcqtYlFf76aYAAgAAeHAAAAAAAAAAAAAAAAA/uZmZmZmZmgAAAAoAAAAAAAAAAHB0AD93ZWthLmNsdXN0ZXJlcnMuZm9yT1BUSUNTQW5kREJTY2FuLkRhdGFiYXNlcy5TZXF1ZW50aWFsRGF0YWJhc2V0AEJ3ZWthLmNsdXN0ZXJlcnMuZm9yT1BUSUNTQW5kREJTY2FuLkRhdGFPYmplY3RzLkV1Y2xpZGVhbkRhdGFPYmplY3Rw"/>
+<entry key="Serialized Weka-Clusterer" type="xstring" value="rO0ABXNyABZ3ZWthLmNsdXN0ZXJlcnMuREJTQ0FO6N9orCpBHvACAApJAAljbHVzdGVySUREAAtlbGFwc2VkVGltZUQAB2Vwc2lsb25JAAltaW5Qb2ludHNJABludW1iZXJPZkdlbmVyYXRlZENsdXN0ZXJzSQAUcHJvY2Vzc2VkX0luc3RhbmNlSURMAAhkYXRhYmFzZXQAN0x3ZWthL2NsdXN0ZXJlcnMvZm9yT1BUSUNTQW5kREJTY2FuL0RhdGFiYXNlcy9EYXRhYmFzZTtMAA1kYXRhYmFzZV9UeXBldAASTGphdmEvbGFuZy9TdHJpbmc7TAAVZGF0YWJhc2VfZGlzdGFuY2VUeXBlcQB+AAJMABtyZXBsYWNlTWlzc2luZ1ZhbHVlc19GaWx0ZXJ0ADpMd2VrYS9maWx0ZXJzL3Vuc3VwZXJ2aXNlZC9hdHRyaWJ1dGUvUmVwbGFjZU1pc3NpbmdWYWx1ZXM7eHIAIXdla2EuY2x1c3RlcmVycy5BYnN0cmFjdENsdXN0ZXJlcqtYlFf76aYAAgAAeHAAAAAAAAAAAAAAAAA/YGJN0vGp/AAAACgAAAAAAAAAAHB0AD93ZWthLmNsdXN0ZXJlcnMuZm9yT1BUSUNTQW5kREJTY2FuLkRhdGFiYXNlcy5TZXF1ZW50aWFsRGF0YWJhc2V0AEJ3ZWthLmNsdXN0ZXJlcnMuZm9yT1BUSUNTQW5kREJTY2FuLkRhdGFPYmplY3RzLkV1Y2xpZGVhbkRhdGFPYmplY3Rw"/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
-<entry key="state" type="xstring" value="CONFIGURED"/>
+<entry key="state" type="xstring" value="EXECUTED"/>
 <entry key="name" type="xstring" value="DBSCAN (3.7)"/>
-<entry key="hasContent" type="xboolean" value="false"/>
+<entry key="hasContent" type="xboolean" value="true"/>
 <entry key="isInactive" type="xboolean" value="false"/>
 <config key="ports">
 <config key="port_1">
 <entry key="index" type="xint" value="1"/>
-<entry key="port_dir_location" type="xstring" isnull="true" value=""/>
+<entry key="port_spec_class" type="xstring" value="org.knime.ext.weka37.ports.WekaClustererModelPortObjectSpec"/>
+<entry key="port_object_class" type="xstring" value="org.knime.ext.weka37.ports.WekaClustererModelPortObject"/>
+<entry key="port_object_summary" type="xstring" value="DBSCAN"/>
+<entry key="port_spec_location" type="xstring" value="spec/spec.zip"/>
+<entry key="port_object_location" type="xstring" value="object/portobject.zip"/>
+<entry key="port_dir_location" type="xstring" value="port_1"/>
 </config>
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" isnull="true" value=""/>
+<entry key="file_store_id" type="xstring" value="96e3b6df-dcab-4803-a878-d7f91b820fd3"/>
 </config>
 </config>

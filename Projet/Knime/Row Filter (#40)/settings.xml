@@ -14,24 +14,27 @@
 <config key="model">
 <config key="rowFilter">
 <entry key="RowFilter_TypeID" type="xstring" value="RowNumber_RowFilter"/>
-<entry key="RowRangeStart" type="xint" value="9999"/>
+<entry key="RowRangeStart" type="xint" value="4999"/>
 <entry key="RowRangeEnd" type="xint" value="-1"/>
 <entry key="RowRangeInclude" type="xboolean" value="false"/>
 </config>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
-<entry key="state" type="xstring" value="CONFIGURED"/>
+<entry key="state" type="xstring" value="EXECUTED"/>
 <entry key="name" type="xstring" value="Row Filter"/>
-<entry key="hasContent" type="xboolean" value="false"/>
+<entry key="hasContent" type="xboolean" value="true"/>
 <entry key="isInactive" type="xboolean" value="false"/>
 <config key="ports">
 <config key="port_1">
 <entry key="index" type="xint" value="1"/>
-<entry key="port_dir_location" type="xstring" isnull="true" value=""/>
+<entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
+<entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
+<entry key="port_object_summary" type="xstring" value="Rows: 4999, Cols: 14"/>
+<entry key="port_dir_location" type="xstring" value="port_1"/>
 </config>
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" isnull="true" value=""/>
+<entry key="file_store_id" type="xstring" value="4573fbf9-995b-4046-86b7-f20f6d04a372"/>
 </config>
 </config>

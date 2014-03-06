@@ -34,7 +34,7 @@
 </config>
 <config key="ExclList">
 <entry key="array-size" type="xint" value="10"/>
-<entry key="0" type="xstring" value="%%65279id"/>
+<entry key="0" type="xstring" value="id"/>
 <entry key="1" type="xstring" value="minutes_taken"/>
 <entry key="2" type="xstring" value="hour_taken"/>
 <entry key="3" type="xstring" value="day_taken"/>
@@ -49,22 +49,30 @@
 </config>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
-<entry key="state" type="xstring" value="CONFIGURED"/>
+<entry key="state" type="xstring" value="EXECUTED"/>
 <entry key="name" type="xstring" value="k-Means"/>
-<entry key="hasContent" type="xboolean" value="false"/>
+<entry key="hasContent" type="xboolean" value="true"/>
 <entry key="isInactive" type="xboolean" value="false"/>
 <config key="ports">
 <config key="port_1">
 <entry key="index" type="xint" value="1"/>
-<entry key="port_dir_location" type="xstring" isnull="true" value=""/>
+<entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
+<entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
+<entry key="port_object_summary" type="xstring" value="Rows: 82827, Cols: 15"/>
+<entry key="port_dir_location" type="xstring" value="port_1"/>
 </config>
 <config key="port_2">
 <entry key="index" type="xint" value="2"/>
-<entry key="port_dir_location" type="xstring" isnull="true" value=""/>
+<entry key="port_spec_class" type="xstring" value="org.knime.core.node.port.pmml.PMMLPortObjectSpec"/>
+<entry key="port_object_class" type="xstring" value="org.knime.core.node.port.pmml.PMMLPortObject"/>
+<entry key="port_object_summary" type="xstring" value="PMML document with version 4.1 and models: ClusteringModel"/>
+<entry key="port_spec_location" type="xstring" value="spec/spec.zip"/>
+<entry key="port_object_location" type="xstring" value="object/portobject.zip"/>
+<entry key="port_dir_location" type="xstring" value="port_2"/>
 </config>
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" isnull="true" value=""/>
+<entry key="file_store_id" type="xstring" value="b2c9b252-ec0a-4a7b-8aba-ea5b3a7340c6"/>
 </config>
 </config>
