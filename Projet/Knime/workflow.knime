@@ -7,7 +7,7 @@
 <entry key="authored-by" type="xstring" value="rdomingues"/>
 <entry key="authored-when" type="xstring" value="2014-02-24 08:41:50 +0100"/>
 <entry key="lastEdited-by" type="xstring" value="deeper"/>
-<entry key="lastEdited-when" type="xstring" value="2014-03-06 14:17:49 +0100"/>
+<entry key="lastEdited-when" type="xstring" value="2014-03-07 01:00:06 +0100"/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="IDLE"/>
@@ -734,13 +734,13 @@
 </config>
 <config key="connection_22">
 <entry key="sourceID" type="xint" value="39"/>
-<entry key="destID" type="xint" value="40"/>
+<entry key="destID" type="xint" value="59"/>
 <entry key="sourcePort" type="xint" value="1"/>
 <entry key="destPort" type="xint" value="1"/>
 </config>
 <config key="connection_23">
 <entry key="sourceID" type="xint" value="39"/>
-<entry key="destID" type="xint" value="59"/>
+<entry key="destID" type="xint" value="40"/>
 <entry key="sourcePort" type="xint" value="1"/>
 <entry key="destPort" type="xint" value="1"/>
 </config>

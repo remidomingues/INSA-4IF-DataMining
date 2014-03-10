@@ -31,4 +31,6 @@
 *.xdy
 *.tdo
 
+*.pyc
+
 Projet/python/build/*

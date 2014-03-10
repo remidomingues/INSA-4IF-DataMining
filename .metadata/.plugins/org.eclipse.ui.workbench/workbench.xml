@@ -21,8 +21,8 @@
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.knime.workbench.editor.WorkflowEditor" name="workflow.knime" partName="0: Knime" title="0: Knime" tooltip="0: Knime" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="knime://LOCAL/Projet/Knime/workflow.knime"/>
+<editor activePart="true" focus="true" id="org.knime.workbench.editor.WorkflowEditor" name="workflow.knime" partName="0: KnimeReloaded" title="0: KnimeReloaded" tooltip="0: KnimeReloaded" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="knime://LOCAL/Projet/KnimeReloaded/workflow.knime"/>
 </editor>
 </editors>
 <views>
@@ -149,8 +149,10 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.knime.workbench.editor.WorkflowEditor" uri="knime://LOCAL/Projet/Knime/workflow.knime"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.knime.workbench.editor.WorkflowEditor" uri="knime://LOCAL/Projet/KnimeReloaded/workflow.knime"/>
 </editors>
-<item active="true" historyLabel="0: Knime" index="0"/>
+<item historyLabel="0: Knime" index="0"/>
+<item active="true" historyLabel="0: KnimeReloaded" index="1"/>
 </navigationHistory>
 </page>
 <workbenchWindowAdvisor/>
@@ -166,6 +168,9 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.knime.workbench.editor.WorkflowEditor" name="workflow.knime" tooltip="knime://LOCAL/Projet/KnimeReloaded/workflow.knime">
+<persistable uri="knime://LOCAL/Projet/KnimeReloaded/workflow.knime"/>
+</file>
 <file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.knime.workbench.editor.WorkflowEditor" name="workflow.knime" tooltip="knime://LOCAL/Projet/Knime/workflow.knime">
 <persistable uri="knime://LOCAL/Projet/Knime/workflow.knime"/>
 </file>
