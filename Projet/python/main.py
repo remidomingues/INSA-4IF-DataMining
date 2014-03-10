@@ -1,5 +1,7 @@
 import parser
 import plot
+from pandas import *
+from numpy import array
 
 from sklearn.cluster import MeanShift, estimate_bandwidth
 from sklearn.datasets.samples_generator import make_blobs
@@ -11,7 +13,7 @@ def test():
 
     # Compute clustering with MeanShift
     # Parameters: data, quantile=radius max of the cluster, n_samples=minimum points per cluster
-    bandwidth = estimate_bandwidth(X, quantile=0.2, n_samples=500)
+    bandwidth = estimate_bandwidth(X, quantile=0.92, n_samples=1000)
 
     ms = MeanShift(bandwidth=bandwidth, bin_seeding=True)
     ms.fit(X)
@@ -20,33 +22,18 @@ def test():
 
 
 def run_meanshift(data):
-    print data[0]
     # Compute clustering with MeanShift
-    # Parameters: data, quantile=radius max of the cluster, n_samples=minimum points per cluster
-    
-    #TODO; data class must be ndarray (cf numpy) => see other examples
-    bandwidth = estimate_bandwidth(data, quantile=0.002, n_samples=30)
-    ms = MeanShift(bandwidth=bandwidth, bin_seeding=True)
+    bandwidth = estimate_bandwidth(data, quantile=0.002, n_samples=1000)
+    ms = MeanShift(bandwidth=bandwidth, bin_seeding=True, min_bin_freq=30, cluster_all=False)
     ms.fit(data)
 
     return ms
 
-
-def get_ms_data(headers, data):
-    ms_data = []
-    lat_idx = headers['latitude']
-    lon_idx = headers['longitude']
-
-    for row in data:
-        ms_data.append([row[lat_idx], row[lon_idx]])
-
-    return ms_data
-
-
 if __name__ == "__main__":
-    test()
+    #test()
 
-    headers, data = parser.parse_csv(filepath="data.csv", limit=5000)
-    ms_data = get_ms_data(headers=headers, data=data)
+    df = pandas.read_csv(filepath_or_buffer="data.csv")  # Read the file
+    ms_data = df[['longitude', 'latitude']].values
+
     ms = run_meanshift(data=ms_data)
     plot.draw_meanshift(data=ms_data, meanshift=ms)
