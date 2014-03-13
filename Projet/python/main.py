@@ -12,9 +12,7 @@ from itertools import cycle
 def import_data(filepath):
     print 'Importing data from {}...'.format(filepath)
     df = pandas.read_csv(filepath_or_buffer=filepath)  # Read the file
-    print df.count()
     df.drop_duplicates()
-    print df.count()
     return df
 
 # Compute clustering with MeanShift
@@ -52,13 +50,13 @@ def export_data(ms_data, clusters_file, cluster_centers, centers_file):
     cluster_centers.to_csv(path_or_buf=centers_file, cols=['longitude', 'latitude', 'cluster'], encoding='utf-8')
 
 if __name__ == "__main__":
-    ms_data = import_data("data/data.csv")
-    ms_values = ms_data[['longitude', 'latitude']].values
+    ms_data = import_data("data/knime_data.csv")
+    ms_values = ms_data[['hashtags']].values
 
     meanshift = run_meanshift(data=ms_values)
     ms_data['cluster'] = meanshift.labels_
 
-    #Filtering data
+    # Filtering data
     ms_data = ms_data[(ms_data['longitude'] < 4.908976) & (ms_data['longitude'] > 4.802508)
         & (ms_data['latitude'] < 45.793688) & (ms_data['latitude'] > 45.715569)]
 
@@ -70,7 +68,7 @@ if __name__ == "__main__":
     labels_unique = np.unique(meanshift.labels_).tolist()
     del labels_unique[0]
 
-    #Filetering clusters centers according to data filter
+    # Filtering clusters centers according to data filter
     cluster_centers = DataFrame(meanshift.cluster_centers_, columns=['longitude', 'latitude'])
     cluster_centers['cluster'] = labels_unique
     cluster_centers = cluster_centers[(cluster_centers['longitude'] < 4.908976) & (cluster_centers['longitude'] > 4.802508)
@@ -91,4 +89,4 @@ if __name__ == "__main__":
 
     plot_meanshift(ms_data, cluster_centers, n_centers_)
 
-    export_data(ms_data, "results/clusters.csv", cluster_centers, "results/centers.csv")
+    export_data(ms_data, "results/points.csv", cluster_centers, "results/centers.csv")
