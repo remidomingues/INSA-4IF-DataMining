@@ -60,37 +60,37 @@
         //Function to create Flickr Marker
         ryan.createFlickrMarker = function(i,latitude,longitude,infowindowcontent,icon)
         {
-            var markerLatLng = new google.maps.LatLng(latitude,longitude);  
-           
+            var markerLatLng = new google.maps.LatLng(longitude,latitude);  
             //extent bounds for each stop and adjust map to fit to it
             bounds.extend(markerLatLng);
             map.fitBounds(bounds);
            
             //set marker to be the flickr image, resizing it to 32 by 32 pixels
-            var image = new google.maps.MarkerImage(icon, null, null, null, new google.maps.Size(32,32));
+            //var image = new google.maps.MarkerImage(icon, null, null, null, new google.maps.Size(32,32));
            
             //create and map the marker
             flickr[i] = new google.maps.Marker({
                 position: markerLatLng,
                 map: map,
                 title: infowindowcontent,
-                icon: image
+                icon: "http://maps.google.com/mapfiles/marker.png"
             });
            
             //add an onclick event
-            google.maps.event.addListener(flickr[i], 'click', function() {
+           /* google.maps.event.addListener(flickr[i], 'click', function() {
                 infowindow.setContent(infowindowcontent);
                 infowindow.open(map,flickr[i]);
-            });
+            });*/
         }
                
         //Function to get data from Flickr
         ryan.getFlickr = function(search)
         {
-            $.getJSON("/mapPoint", function(data){                
+            bounds = new google.maps.LatLngBounds ();
+            $.getJSON("/mapPoint", function(data){  
+                    var data2 =             
                     $.each(data, function(i, s) {
-                        console.log("fzd")
-                        ryan.createFlickrMarker(i,s.lat, s.lon, null, null)
+                        ryan.createFlickrMarker(i,s[0], s[1], null, null)
                     })
                 })
         }
