@@ -22,7 +22,7 @@
 <entry key="0" type="xstring" value="id"/>
 </config>
 <config key="ExclList">
-<entry key="array-size" type="xint" value="14"/>
+<entry key="array-size" type="xint" value="15"/>
 <entry key="0" type="xstring" value="user"/>
 <entry key="1" type="xstring" value="longitude"/>
 <entry key="2" type="xstring" value="latitude"/>
@@ -37,6 +37,7 @@
 <entry key="11" type="xstring" value="day_uploaded"/>
 <entry key="12" type="xstring" value="month_uploaded"/>
 <entry key="13" type="xstring" value="year_uploaded"/>
+<entry key="14" type="xstring" value="url"/>
 </config>
 <entry key="keep_all_columns_selected" type="xboolean" value="false"/>
 </config>
@@ -67,7 +68,7 @@
 <entry key="columnNamePolicy" type="xstring" value="Keep original name(s)"/>
 <config key="aggregationColumn">
 <config key="columnNames">
-<entry key="array-size" type="xint" value="13"/>
+<entry key="array-size" type="xint" value="14"/>
 <entry key="0" type="xstring" value="longitude"/>
 <entry key="1" type="xstring" value="latitude"/>
 <entry key="2" type="xstring" value="hashtags"/>
@@ -81,9 +82,10 @@
 <entry key="10" type="xstring" value="day_uploaded"/>
 <entry key="11" type="xstring" value="month_uploaded"/>
 <entry key="12" type="xstring" value="year_uploaded"/>
+<entry key="13" type="xstring" value="url"/>
 </config>
 <config key="columnTypes">
-<entry key="array-size" type="xint" value="13"/>
+<entry key="array-size" type="xint" value="14"/>
 <config key="0">
 <entry key="cell_class" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
 <entry key="is_null" type="xboolean" value="false"/>
@@ -136,9 +138,13 @@
 <entry key="cell_class" type="xstring" value="org.knime.core.data.def.IntCell"/>
 <entry key="is_null" type="xboolean" value="false"/>
 </config>
+<config key="13">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
+<entry key="is_null" type="xboolean" value="false"/>
+</config>
 </config>
 <config key="aggregationMethod">
-<entry key="array-size" type="xint" value="13"/>
+<entry key="array-size" type="xint" value="14"/>
 <entry key="0" type="xstring" value="First"/>
 <entry key="1" type="xstring" value="First"/>
 <entry key="2" type="xstring" value="First"/>
@@ -152,9 +158,10 @@
 <entry key="10" type="xstring" value="First"/>
 <entry key="11" type="xstring" value="First"/>
 <entry key="12" type="xstring" value="First"/>
+<entry key="13" type="xstring" value="First"/>
 </config>
 <config key="inclMissingVals">
-<entry key="array-size" type="xint" value="13"/>
+<entry key="array-size" type="xint" value="14"/>
 <entry key="0" type="xboolean" value="false"/>
 <entry key="1" type="xboolean" value="false"/>
 <entry key="2" type="xboolean" value="true"/>
@@ -168,6 +175,7 @@
 <entry key="10" type="xboolean" value="false"/>
 <entry key="11" type="xboolean" value="false"/>
 <entry key="12" type="xboolean" value="false"/>
+<entry key="13" type="xboolean" value="true"/>
 </config>
 </config>
 <config key="retainOrder_Internals">
@@ -191,12 +199,12 @@
 <entry key="index" type="xint" value="1"/>
 <entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
 <entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
-<entry key="port_object_summary" type="xstring" value="Rows: 82827, Cols: 14"/>
+<entry key="port_object_summary" type="xstring" value="Rows: 82833, Cols: 15"/>
 <entry key="port_dir_location" type="xstring" value="port_1"/>
 </config>
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="73390d18-446a-4cc2-b6b8-2c9dddb9b565"/>
+<entry key="file_store_id" type="xstring" value="2c057a01-381c-4871-b3be-d2cfa610a326"/>
 </config>
 </config>
