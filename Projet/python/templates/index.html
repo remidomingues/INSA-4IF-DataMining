@@ -88,7 +88,8 @@
         ryan.getFlickr = function(search)
         {
             $.getJSON("/mapPoint", function(data){                
-                    $.each(data.result, function(i, s) {
+                    $.each(data, function(i, s) {
+                        console.log("fzd")
                         ryan.createFlickrMarker(i,s.lat, s.lon, null, null)
                     })
                 })
@@ -97,7 +98,7 @@
         //Function that gets run when the document loads
         ryan.initialize = function()
         {
-            var latlng = new google.maps.LatLng(34.0194543,-118.4911912);
+            var latlng = new google.maps.LatLng(45.759,4.8366);
             var myOptions = {
                 zoom: 12,
                 center: latlng,
