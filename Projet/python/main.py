@@ -4,21 +4,10 @@ from pandas import *
 from numpy import array
 
 from sklearn.cluster import MeanShift, estimate_bandwidth
-from sklearn.datasets.samples_generator import make_blobs
 
-def test():
-    #Data
-    centers = [[1, 1], [-1, -1], [1, -1]]
-    X, _ = make_blobs(n_samples=10000, centers=centers, cluster_std=0.6)
-
-    # Compute clustering with MeanShift
-    # Parameters: data, quantile=radius max of the cluster, n_samples=minimum points per cluster
-    bandwidth = estimate_bandwidth(X, quantile=0.92, n_samples=1000)
-
-    ms = MeanShift(bandwidth=bandwidth, bin_seeding=True)
-    ms.fit(X)
-
-    plot.draw_meanshift(X, ms)
+import numpy as np
+import pylab as pl
+from itertools import cycle
 
 def import_data(filepath):
     print 'Importing data from {}...'.format(filepath)
@@ -62,7 +51,7 @@ def export_data(ms_data, clusters_file, cluster_centers, centers_file):
 
 if __name__ == "__main__":
     ms_data = import_data("data/knime_data.csv")
-    ms_values = ms_data[['hashtags']].values
+    ms_values = ms_data[['longitude', 'latitude']].values
 
     meanshift = run_meanshift(data=ms_values)
     ms_data['cluster'] = meanshift.labels_
