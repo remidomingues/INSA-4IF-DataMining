@@ -40,7 +40,7 @@
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
             map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-
+        }
 
            //array to hold flickr markers
             var flickr = [];
@@ -71,6 +71,8 @@
                     icon: image
                 });
 
+
+               
                 //add an onclick event
                 google.maps.event.addListener(flickr[i], 'click', function() {
                     infowindow.setContent(infowindowcontent);
@@ -78,18 +80,14 @@
                 });
             }
 
-            var  getFlickrPoint = function(){
+            ryan.getFlickrPoint = function(){
                 $.getJSON("/mapPoint", function(data){
                     $.each(data.result, function(i, s) {
-                        console.log(s.lon, s.lat)
-                        ryan.createFlickrMarker(i,s.lat, s.lon, null, null)
-                    })
-                })
-
-
+                        createFlickrMarker(i,s.lat, s.lon, null, null);
+                    });
+                });
             }
-
-
+           
         }
     </script>
 </head>
