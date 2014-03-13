@@ -6,7 +6,7 @@
 <favorite frequency="1" nodeid="org.knime.base.node.io.csvwriter.CSVWriterNodeFactory"/>
 </frequents>
 <lastused>
-<favorite nodeid="org.knime.base.node.preproc.colconvert.numbertostring.NumberToStringNodeFactory"/>
 <favorite nodeid="org.knime.base.node.io.csvwriter.CSVWriterNodeFactory"/>
+<favorite nodeid="org.knime.base.node.preproc.colconvert.numbertostring.NumberToStringNodeFactory"/>
 </lastused>
 </favoritenodes>
