@@ -24,13 +24,13 @@
 <entry key="max_nominal_values" type="xint" value="60"/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
-<entry key="state" type="xstring" value="EXECUTED"/>
+<entry key="state" type="xstring" value="IDLE"/>
 <entry key="name" type="xstring" value="Scatter Plot"/>
-<entry key="hasContent" type="xboolean" value="true"/>
+<entry key="hasContent" type="xboolean" value="false"/>
 <entry key="isInactive" type="xboolean" value="false"/>
 <config key="ports"/>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="037bb292-e9ff-47a6-b509-5efd9db130a4"/>
+<entry key="file_store_id" type="xstring" isnull="true" value=""/>
 </config>
 </config>

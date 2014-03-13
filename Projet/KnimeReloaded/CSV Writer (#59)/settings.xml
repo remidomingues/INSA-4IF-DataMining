@@ -24,7 +24,7 @@
 <entry key="writeRowHeader" type="xboolean" value="false"/>
 <entry key="decimalSeparator" type="xchar" value="."/>
 <entry key="lineEndingMode" type="xstring" value="SYST"/>
-<entry key="filename" type="xstring" value="/home/deeper/Documents/INSA/4IF/Hexanome/datamining/Projet/data.csv"/>
+<entry key="filename" type="xstring" value="/home/deeper/Documents/INSA/4IF/Hexanome/datamining/Projet/python/data/knime_data.csv"/>
 <entry key="fileOverwritePolicy" type="xstring" value="Overwrite"/>
 <entry key="skipWriteColHeaderOnAppend" type="xboolean" value="false"/>
 <entry key="commentBegin" type="xstring" value=""/>
@@ -43,6 +43,6 @@
 <config key="ports"/>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="dd41322e-f72d-4fe3-a3d0-62286a491ede"/>
+<entry key="file_store_id" type="xstring" value="7616fb25-5ee5-488c-a7e5-6c5a3c8841c6"/>
 </config>
 </config>

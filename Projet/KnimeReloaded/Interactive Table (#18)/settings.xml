@@ -13,22 +13,13 @@
 </config>
 <config key="model"/>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
-<entry key="state" type="xstring" value="EXECUTED"/>
+<entry key="state" type="xstring" value="CONFIGURED"/>
 <entry key="name" type="xstring" value="Interactive Table"/>
-<entry key="hasContent" type="xboolean" value="true"/>
+<entry key="hasContent" type="xboolean" value="false"/>
 <entry key="isInactive" type="xboolean" value="false"/>
 <config key="ports"/>
-<config key="internalTables">
-<entry key="location" type="xstring" value="internalTables"/>
-<config key="content">
-<config key="table_0">
-<entry key="index" type="xint" value="0"/>
-<entry key="table_dir_location" type="xstring" value="table_0"/>
-</config>
-</config>
-</config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="26b99926-c19b-4df3-baed-0248aac20406"/>
+<entry key="file_store_id" type="xstring" isnull="true" value=""/>
 </config>
 </config>

@@ -24,13 +24,17 @@
 <entry key="max_nominal_values" type="xint" value="60"/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
-<entry key="state" type="xstring" value="EXECUTED"/>
+<entry key="state" type="xstring" value="CONFIGURED"/>
+<config key="nodecontainer_message">
+<entry key="type" type="xstring" value="WARNING"/>
+<entry key="message" type="xstring" value="Some columns are ignored: too many/missing nominal values."/>
+</config>
 <entry key="name" type="xstring" value="Scatter Plot"/>
-<entry key="hasContent" type="xboolean" value="true"/>
+<entry key="hasContent" type="xboolean" value="false"/>
 <entry key="isInactive" type="xboolean" value="false"/>
 <config key="ports"/>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="b534dfd6-0adc-4dc9-9c6d-8c0b2e39cdec"/>
+<entry key="file_store_id" type="xstring" isnull="true" value=""/>
 </config>
 </config>

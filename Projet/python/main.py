@@ -45,7 +45,7 @@ def plot_meanshift(ms_data, cluster_centers, n_centers_):
 
 def export_data(ms_data, clusters_file, cluster_centers, centers_file):
     print 'Exporting clusters to {}...'.format(clusters_file)
-    ms_data.to_csv(path_or_buf=clusters_file, cols=['longitude', 'latitude', 'hashtags', 'cluster'], encoding='utf-8')
+    ms_data.to_csv(path_or_buf=clusters_file, cols=['longitude', 'latitude', 'hashtags', 'url', 'cluster'], encoding='utf-8')
     print 'Exporting clusters centers to {}...'.format(centers_file)
     cluster_centers.to_csv(path_or_buf=centers_file, cols=['longitude', 'latitude', 'cluster'], encoding='utf-8')
 

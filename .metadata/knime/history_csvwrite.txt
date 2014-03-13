@@ -1,1 +1,4 @@
+/home/deeper/Documents/INSA/4IF/Hexanome/datamining/Projet/python/data/knime_data.csv
+/home/deeper/Documents/INSA/4IF/Hexanome/datamining/Projet/python/data/data.csv
 /home/deeper/Documents/INSA/4IF/Hexanome/datamining/Projet/data.csv
+/home/deeper/Documents/INSA/4IF/Hexanome/datamining/Projet/python/data/knime_data_url.csv
