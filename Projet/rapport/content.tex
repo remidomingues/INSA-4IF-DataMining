@@ -155,7 +155,7 @@ Le composant \textbf{k-Means} est utilisé pour réaliser 60 clusters en un maxi
 
 Le nombre de cluster ici utilisé est probablement insuffisant en comparaison du nombre de points d'intérêts potentiel sur Lyon, mais se trouve limité par le bloc \textbf{Color Manager}, lequel est utilisé afin d'assigner une couleur à chaque chaîne de caractère unique de la colonne <cluster> crée par k-means, et ne peut générer automatiquement plus de 60 couleurs pour nos valeurs.
 
-Le \textbf{Scatter Plot} affiche ensuite les résultats suivant :
+Le \textbf{Scatter Plot} affiche ensuite les résultats suivants :
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\linewidth]{img/60_means_all.png}
@@ -163,6 +163,16 @@ Le \textbf{Scatter Plot} affiche ensuite les résultats suivant :
 \end{figure}
 
 Comme attendu, ces résultats sont peu probants, notamment de par la présence de cluster de très faible densité.
+
+Notons que ce clustering, appliqué sur des données ne restreignant pas la latitude et longitude à la ville de Lyon, donne les résultats suivants :
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{img/60_means_large.png}
+    \caption{Résultats de K-Means, 60 clusters, 82 199 lignes}
+\end{figure}
+
+Le nombre de cluster est ici hautement insuffisant au vu du clustering appliqué au centre ville. Les clusters éloignés ne semblent pas non plus pertinents.
+
 
 
 \subsubsection{K-Means appliqué aux données de jour}
@@ -277,6 +287,13 @@ Le composant \textbf{String Replacer} permet de transformer les caractères \'\\
 L'ensemble des données est ensuite exporté par le composant \textbf{CSV Writer}.
 
 \subsubsection{Mean Shift en Python}
+La librairie open source d'analyse de données \textbf{Pandas} a tout d'abord été utilisée afin de réaliser le parsing du document CSV et la manipulation de la matrice de données obtenue.
+
+L'algorithme \textbf{Mean Shift} de la librairie Python \textbf{SciKit-Learn} est ensuite appliqué sur la latitude et longitude, les données étant filtrées au préalable par Knime.
+
+
+
+
 voir pour noël
 \pagebreak
 
