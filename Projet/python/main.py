@@ -4,7 +4,6 @@ import parser
 import plot
 from pandas import *
 from numpy import array, isfinite
-from datetime import datetime
 
 from sklearn.cluster import MeanShift, estimate_bandwidth
 
@@ -26,7 +25,7 @@ def import_data(filepath):
 # Compute clustering with MeanShift
 def run_meanshift(data):
     print 'Clustering data (Meanshift algorithm)...'
-    bandwidth = estimate_bandwidth(data, quantile=0.002, n_samples=1000)
+    bandwidth = estimate_bandwidth(data, quantile=0.005, n_samples=1000)
     ms = MeanShift(bandwidth=bandwidth, bin_seeding=True, min_bin_freq=30, cluster_all=False)
     ms.fit(data)
     return ms
@@ -63,17 +62,14 @@ def export_data(ms_data, clusters_file, cluster_centers, centers_file):
 
 if __name__ == "__main__":
     ms_data = import_data("data/knime_data.csv")
+
     ms_values = ms_data[['longitude', 'latitude']].values
+
 
     meanshift = run_meanshift(data=ms_values)
     ms_data['cluster'] = meanshift.labels_
 
-    # Filtering data
-    ms_data = ms_data[(ms_data['longitude'] < 4.908976) & (ms_data['longitude'] > 4.802508)
-        & (ms_data['latitude'] < 45.793688) & (ms_data['latitude'] > 45.715569)]
-
     ms_data = ms_data.sort(columns='cluster')
-
     # Removing points which belong to no cluster
     ms_data = ms_data[(ms_data['cluster'] != -1)]
 
@@ -83,8 +79,6 @@ if __name__ == "__main__":
     # Filtering clusters centers according to data filter
     cluster_centers = DataFrame(meanshift.cluster_centers_, columns=['longitude', 'latitude'])
     cluster_centers['cluster'] = labels_unique
-    cluster_centers = cluster_centers[(cluster_centers['longitude'] < 4.908976) & (cluster_centers['longitude'] > 4.802508)
-        & (cluster_centers['latitude'] < 45.793688) & (cluster_centers['latitude'] > 45.715569)] #793688
 
     #Counting tags
     tags_list = []
