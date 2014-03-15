@@ -7,27 +7,53 @@
 <entry key="node-bundle-vendor" type="xstring" value="KNIME GmbH, Konstanz, Germany"/>
 <config key="factory_settings"/>
 <entry key="node_file" type="xstring" value="settings.xml"/>
-<config key="flow_stack"/>
+<config key="flow_stack">
+<config key="Variable_0">
+<entry key="type" type="xstring" value="variable"/>
+<entry key="name" type="xstring" value="\\n"/>
+<entry key="class" type="xstring" value="STRING"/>
+<entry key="value" type="xstring" value="true"/>
+</config>
+</config>
 <config key="internal_node_subsettings">
 <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
 </config>
 <config key="model">
-<entry key="DataURL" type="xstring" value="file:/home/deeper/Documents/INSA/4IF/Hexanome/datamining/Projet/Projet%20FLICKR%20-%20DВcouverte%20de%20points%20d%20interets/flickr.csv"/>
+<entry key="DataURL" type="xstring" value="file:/home/deeper/Documents/INSA/4IF/Hexanome/datamining/Projet/python/data/flickr.csv"/>
 <config key="Delimiters">
 <config key="Delim0">
-<entry key="pattern" type="xstring" value="%%00009"/>
-<entry key="combineMultiple" type="xboolean" value="false"/>
-<entry key="includeInToken" type="xboolean" value="false"/>
-<entry key="returnAsToken" type="xboolean" value="false"/>
-</config>
-<config key="Delim1">
 <entry key="pattern" type="xstring" value="%%00010"/>
 <entry key="combineMultiple" type="xboolean" value="true"/>
 <entry key="includeInToken" type="xboolean" value="false"/>
 <entry key="returnAsToken" type="xboolean" value="true"/>
 </config>
+<config key="Delim1">
+<entry key="pattern" type="xstring" value="%%00013"/>
+<entry key="combineMultiple" type="xboolean" value="true"/>
+<entry key="includeInToken" type="xboolean" value="false"/>
+<entry key="returnAsToken" type="xboolean" value="true"/>
 </config>
-<config key="Quotes"/>
+<config key="Delim2">
+<entry key="pattern" type="xstring" value=","/>
+<entry key="combineMultiple" type="xboolean" value="false"/>
+<entry key="includeInToken" type="xboolean" value="false"/>
+<entry key="returnAsToken" type="xboolean" value="false"/>
+</config>
+</config>
+<config key="Quotes">
+<config key="Quote0">
+<entry key="left" type="xstring" value="&quot;"/>
+<entry key="right" type="xstring" value="&quot;"/>
+<entry key="EscChar" type="xchar" value="\"/>
+<entry key="DontRem" type="xboolean" value="false"/>
+</config>
+<config key="Quote1">
+<entry key="left" type="xstring" value="'"/>
+<entry key="right" type="xstring" value="'"/>
+<entry key="EscChar" type="xchar" value="\"/>
+<entry key="DontRem" type="xboolean" value="false"/>
+</config>
+</config>
 <config key="Comments"/>
 <config key="WhiteSpaces">
 <entry key="WhiteSpace0" type="xstring" value=" "/>
@@ -35,7 +61,7 @@
 </config>
 <entry key="CombineMultDelims" type="xboolean" value="false"/>
 <entry key="SkipFirstLines" type="xlong" value="0"/>
-<entry key="NewLineInQuotes" type="xboolean" value="false"/>
+<entry key="NewLineInQuotes" type="xboolean" value="true"/>
 <entry key="TableName" type="xstring" value="flickr.csv"/>
 <entry key="hasColHdr" type="xboolean" value="true"/>
 <entry key="hasRowHdr" type="xboolean" value="false"/>
@@ -44,19 +70,21 @@
 <config key="RowDelims">
 <entry key="RDelim0" type="xstring" value="%%00010"/>
 <entry key="SkipEmptyLine0" type="xboolean" value="true"/>
+<entry key="RDelim1" type="xstring" value="%%00013"/>
+<entry key="SkipEmptyLine1" type="xboolean" value="true"/>
 </config>
 <config key="MissingPatterns"/>
 <entry key="globalMissPattern" type="xstring" isnull="true" value=""/>
 <entry key="DecimalSeparator" type="xchar" value="."/>
 <entry key="ThrousandsSeparator" type="xchar" value="%%00000"/>
-<entry key="ignEmtpyTokensAtEOR" type="xboolean" value="true"/>
+<entry key="ignEmtpyTokensAtEOR" type="xboolean" value="false"/>
 <entry key="acceptShortLines" type="xboolean" value="true"/>
 <entry key="uniquifyRowID" type="xboolean" value="false"/>
 <entry key="MaxNumOfRows" type="xlong" value="-1"/>
 <entry key="ColNumDetermLine" type="xint" value="2"/>
-<entry key="CharsetName" type="xstring" value="UTF-8"/>
+<entry key="CharsetName" type="xstring" value="ISO-8859-1"/>
 <entry key="delimsAtEOLuserVal" type="xboolean" value="true"/>
-<entry key="numOfColumns" type="xint" value="15"/>
+<entry key="numOfColumns" type="xint" value="16"/>
 <entry key="PreserveSettings" type="xboolean" value="false"/>
 <config key="ColumnProperties">
 <config key="0">
@@ -83,23 +111,23 @@
 </config>
 <config key="2">
 <entry key="UserSetValues" type="xboolean" value="false"/>
-<entry key="MissValuePattern" type="xstring" value="?"/>
+<entry key="MissValuePattern" type="xstring" isnull="true" value=""/>
 <entry key="ReadPossValsFromFile" type="xboolean" value="false"/>
 <entry key="SkipThisColumn" type="xboolean" value="false"/>
 <entry key="ColumnName" type="xstring" value="longitude"/>
 <config key="ColumnClass">
-<entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
 <entry key="is_null" type="xboolean" value="false"/>
 </config>
 </config>
 <config key="3">
 <entry key="UserSetValues" type="xboolean" value="false"/>
-<entry key="MissValuePattern" type="xstring" value="?"/>
+<entry key="MissValuePattern" type="xstring" isnull="true" value=""/>
 <entry key="ReadPossValsFromFile" type="xboolean" value="false"/>
 <entry key="SkipThisColumn" type="xboolean" value="false"/>
 <entry key="ColumnName" type="xstring" value="latitude"/>
 <config key="ColumnClass">
-<entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.DoubleCell"/>
 <entry key="is_null" type="xboolean" value="false"/>
 </config>
 </config>
@@ -224,6 +252,23 @@
 <entry key="is_null" type="xboolean" value="false"/>
 </config>
 </config>
+<config key="15">
+<entry key="UserSetValues" type="xboolean" value="false"/>
+<entry key="MissValuePattern" type="xstring" value="?"/>
+<entry key="ReadPossValsFromFile" type="xboolean" value="false"/>
+<entry key="SkipThisColumn" type="xboolean" value="false"/>
+<entry key="ColumnName" type="xstring" value="url"/>
+<config key="ColumnClass">
+<entry key="cell_class" type="xstring" value="org.knime.core.data.def.StringCell"/>
+<entry key="is_null" type="xboolean" value="false"/>
+</config>
+</config>
+</config>
+</config>
+<config key="variables">
+<config key="NewLineInQuotes">
+<entry key="used_variable" type="xstring" isnull="true" value=""/>
+<entry key="exposed_variable" type="xstring" value="\\n"/>
 </config>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
@@ -236,12 +281,12 @@
 <entry key="index" type="xint" value="1"/>
 <entry key="port_spec_class" type="xstring" value="org.knime.core.data.DataTableSpec"/>
 <entry key="port_object_class" type="xstring" value="org.knime.core.node.BufferedDataTable"/>
-<entry key="port_object_summary" type="xstring" value="Rows: 83158, Cols: 15"/>
+<entry key="port_object_summary" type="xstring" value="Rows: 83155, Cols: 16"/>
 <entry key="port_dir_location" type="xstring" value="port_1"/>
 </config>
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="7d8dcdb1-131f-4753-a14e-f7332767351e"/>
+<entry key="file_store_id" type="xstring" value="5a243f16-6ca7-4e70-b1a9-e16a4903be20"/>
 </config>
 </config>
