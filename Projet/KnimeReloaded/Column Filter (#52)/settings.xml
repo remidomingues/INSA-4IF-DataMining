@@ -21,7 +21,7 @@
 <entry key="2" type="xstring" value="Cluster"/>
 </config>
 <config key="excluded_names">
-<entry key="array-size" type="xint" value="12"/>
+<entry key="array-size" type="xint" value="13"/>
 <entry key="0" type="xstring" value="id"/>
 <entry key="1" type="xstring" value="hashtags"/>
 <entry key="2" type="xstring" value="legend"/>
@@ -34,6 +34,7 @@
 <entry key="9" type="xstring" value="day_uploaded"/>
 <entry key="10" type="xstring" value="month_uploaded"/>
 <entry key="11" type="xstring" value="year_uploaded"/>
+<entry key="12" type="xstring" value="url"/>
 </config>
 <entry key="enforce_option" type="xstring" value="EnforceExclusion"/>
 <config key="name_pattern">
@@ -64,7 +65,7 @@
 <config key="styles"/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
-<entry key="state" type="xstring" value="CONFIGURED"/>
+<entry key="state" type="xstring" value="IDLE"/>
 <entry key="name" type="xstring" value="Column Filter"/>
 <entry key="hasContent" type="xboolean" value="false"/>
 <entry key="isInactive" type="xboolean" value="false"/>

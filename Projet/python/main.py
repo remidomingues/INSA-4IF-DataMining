@@ -99,7 +99,6 @@ if __name__ == "__main__":
         tags_list.append(str(tags))
 
     cluster_centers['tags'] = tags_list
-    print cluster_centers['tags']
     n_centers_ = len(cluster_centers)
 
 
@@ -116,6 +115,6 @@ if __name__ == "__main__":
 
     print("> Number of estimated clusters: %d" % n_centers_)
 
-    # plot_meanshift(ms_data, cluster_centers, n_centers_)
+    plot_meanshift(ms_data, cluster_centers, n_centers_)
 
     export_data(ms_data, "results/points.csv", cluster_centers, "results/centers.csv")

@@ -1,0 +1,54 @@
+\section{Introduction}
+Cette étude doit permettre à terme au Grand Lyon d'améliorer la gestion de ses transports en commun et la vie de ses touristes.
+
+L'objectif de celle-ci réside donc premièrement dans l'identification des points d'intérêts situés dans la ville de Lyon. Pour ce faire, l'utilisation d'algorithmes de clustering dans un contexte de fouille de données doit permettre l'identification des zones visées.
+
+À cet effet, ledit clustering s'effectuera sur la base d'un fichier CSV obtenu grâce à la collecte de photos géolocalisées via l'API Flickr.
+\pagebreak
+
+
+\section{Analyse et nettoyage des données}
+Les données reçues au format CSV correspondent à la structure suivante :
+<id,user,longitude,latitude,hashtags,legend,minutes_taken,hour_taken,day_taken,month_taken,year_taken,hour_uploaded,day_uploaded,month_uploaded,year_uploaded,url>
+
+Afin d'obtenir un jeu de données propre sur lequel effectuer nos analyses, il est en premier lieu nécessaire de filtrer et corriger les 83 155 lignes reçues, ce afin de s’assurer de leur validité et cohérence.
+\pagebreak
+
+
+\section{Clustering}
+Essayer d’obtenir la géolocalisation des photos en fonction de l’heure. Ceci est important, car on peut séparer les photos par horaire : une photo prise de nuit est probablement plus sujette à être une photo de bar ou tout autre lieux d’activité nocturne, contrairement à la journée, ou on retrouve plus les monuments.
+\pagebreak
+
+
+\begin{figure}[h!]
+    \centering
+    %\includegraphics[width=\linewidth]{../../documents/evaluation/chiffrage.png}
+    \caption{Estimation du coût de réalisation de la solution}
+\end{figure}
+
+TODO DBSCAN
+\pagebreak
+
+
+\section{Évaluation des clustering}
+\pagebreak
+
+
+\section{Description des clusters}
+TODO : Google Places et gestion des tags ?
+\pagebreak
+
+
+\section{Visualisation des résultats}
+\pagebreak
+
+
+\section{Interprétation des résultats}
+Comment votre analyse peut-elle aider le Grand Lyon ? Quelles connaissances lui apporte-t-elle ?
+\pagebreak
+
+
+\section{Something ?}
+On a fait des trucs en plus ?
+=> Passage à l’échelle ? Tâches prédictives ? Analyse dynamique et non statique ? Autres sources ? (Tweets, Instagram,…)
+\pagebreak

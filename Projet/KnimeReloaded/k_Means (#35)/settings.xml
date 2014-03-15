@@ -16,7 +16,7 @@
 <entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
-<entry key="nrClusters" type="xint" value="30"/>
+<entry key="nrClusters" type="xint" value="100"/>
 <config key="maxNrIterations_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_integer"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>

@@ -19,7 +19,7 @@
 <entry key="memberships" type="xboolean" value="false"/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
-<entry key="state" type="xstring" value="IDLE"/>
+<entry key="state" type="xstring" value="CONFIGURED"/>
 <entry key="name" type="xstring" value="Weka Cluster Assigner (3.7)"/>
 <entry key="hasContent" type="xboolean" value="false"/>
 <entry key="isInactive" type="xboolean" value="false"/>

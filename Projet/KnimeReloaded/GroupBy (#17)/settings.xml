@@ -51,21 +51,11 @@
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
 <entry key="enableHilite" type="xboolean" value="false"/>
-<config key="valueDelimiter_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="valueDelimiter" type="xstring" value=", "/>
 <config key="sortInMemory_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
 <entry key="sortInMemory" type="xboolean" value="false"/>
-<config key="columnNamePolicy_Internals">
-<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
-<entry key="EnabledStatus" type="xboolean" value="true"/>
-</config>
-<entry key="columnNamePolicy" type="xstring" value="Keep original name(s)"/>
 <config key="aggregationColumn">
 <config key="columnNames">
 <entry key="array-size" type="xint" value="14"/>
@@ -178,6 +168,11 @@
 <entry key="13" type="xboolean" value="true"/>
 </config>
 </config>
+<config key="columnNamePolicy_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="columnNamePolicy" type="xstring" value="Keep original name(s)"/>
 <config key="retainOrder_Internals">
 <entry key="SettingsModelID" type="xstring" value="SMID_boolean"/>
 <entry key="EnabledStatus" type="xboolean" value="true"/>
@@ -188,6 +183,11 @@
 <entry key="EnabledStatus" type="xboolean" value="true"/>
 </config>
 <entry key="inMemory" type="xboolean" value="false"/>
+<config key="valueDelimiter_Internals">
+<entry key="SettingsModelID" type="xstring" value="SMID_string"/>
+<entry key="EnabledStatus" type="xboolean" value="true"/>
+</config>
+<entry key="valueDelimiter" type="xstring" value=", "/>
 </config>
 <entry key="customDescription" type="xstring" isnull="true" value=""/>
 <entry key="state" type="xstring" value="EXECUTED"/>
@@ -205,6 +205,6 @@
 </config>
 <config key="filestores">
 <entry key="file_store_location" type="xstring" isnull="true" value=""/>
-<entry key="file_store_id" type="xstring" value="2c057a01-381c-4871-b3be-d2cfa610a326"/>
+<entry key="file_store_id" type="xstring" value="8067143c-d6e6-4791-8fe1-77421244e37e"/>
 </config>
 </config>
