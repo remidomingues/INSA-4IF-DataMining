@@ -1,28 +1,3 @@
-\usepackage{listings}
-\usepackage{color}
-
-\definecolor{dkgreen}{rgb}{0,0.6,0}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
-\definecolor{mauve}{rgb}{0.58,0,0.82}
-
-\lstset{language=Java,
-    frame=tb,
-    language=Java,
-    aboveskip=3mm,
-    belowskip=3mm,
-    showstringspaces=false,
-    columns=flexible,
-    basicstyle={\small\ttfamily},
-    numbers=none,
-    numberstyle=\tiny\color{gray},
-    keywordstyle=\color{blue},
-    commentstyle=\color{dkgreen},
-    stringstyle=\color{mauve},
-    breaklines=true,
-    breakatwhitespace=true
-    tabsize=3
-}
-
 \section{Introduction}
 Cette étude doit permettre à terme au Grand Lyon d'améliorer la gestion de ses transports en commun et la vie de ses touristes.
 
@@ -34,13 +9,13 @@ L'objectif de celle-ci réside donc premièrement dans l'identification des poin
 
 \section{Analyse et nettoyage des données}
 Les données reçues au format CSV correspondent à la structure suivante :
-<id,user,longitude,latitude,hashtags,legend,minutes_taken,hour_taken,day_taken,month_taken,year_taken,hour_uploaded,day_uploaded,month_uploaded,year_uploaded,url>
+<id,user, longitude, latitude, hashtags, legend, minutes\_taken, hour\_taken, day\_taken, month\_taken, year\_taken, hour\_uploaded, day\_uploaded, month\_uploaded, year\_uploaded, url>
 
 Afin d'obtenir un jeu de données propre sur lequel effectuer nos analyses, il est en premier lieu nécessaire de filtrer, corriger ou valider la cohérence des 83 155 lignes reçues. Pour ce faire, le logiciel de fouille de données Knime est utilisé.
 
 Au sein du flux de traitement utilisé se trouve tout d'abord des blocs préliminaires dédiés au filtrage des données incohérentes ou ne concernant pas l'étude présente :
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{img/knime_filter.png}
     \caption{Flux de traitement dédié au filtre des données incohérentes}
@@ -58,7 +33,7 @@ Le parsing des données s'effectue ici à l'aide du composant \textbf{File Reade
         \item Quote support :
         \begin{itemize}
             \item Quoted strings can extend over multiple lines : true
-            \item Quotes characters : \" et \'
+            \item Quotes characters : \" et '
         \end{itemize}
         \item Ignore spaces : Ignore extra delimiters at end of rows : true
         \item Short lines : Allow short lines : true
@@ -67,7 +42,7 @@ Le parsing des données s'effectue ici à l'aide du composant \textbf{File Reade
 \end{itemize}
 
 \subsection{Latitude et longitude}
-Un filtre est tout d'abord appliqué sur les colonnes latitude et longitude de type string, à l'aide de deux composants \textbf{Row filter}. Seules les lignes respectant l'expression régulière suivante décrivant un nombre flottant sont alors conservées : [-]?[0-9]+\\.[0-9]+
+Un filtre est tout d'abord appliqué sur les colonnes latitude et longitude de type string, à l'aide de deux composants \textbf{Row filter}. Seules les lignes respectant l'expression régulière suivante décrivant un nombre flottant sont alors conservées : $[-]?[0-9]+\backslash.[0-9]+$
 
 Les deux colonnes sont ensuite parsées en nombre grâce au composant \textbf{String to Number}.
 
@@ -84,16 +59,16 @@ On obtient donc grâce à deux composants \textbf{Row Filter} les contraintes su
 \subsection{Champs date et heure}
 Afin d'obtenir des données cohérentes vis-à-vis de la date et de l'heure de prise de la photo et de son upload, on applique les contraintes suivantes à l'aide de blocs \textbf{Row Filter} :
 \begin{itemize}
-    \item $ 0 \leq minutes_taken \leq 59 $
-    \item $ 0 \leq hour_taken \leq 23 $
-    \item $ 1 \leq day_taken \leq 31 $
-    \item $ 1 \leq month_taken \leq 12 $
-    \item $ 2000 \leq year_taken \leq 2014 $\\
+    \item $ 0 \leq minutes\_taken \leq 59 $
+    \item $ 0 \leq hour\_taken \leq 23 $
+    \item $ 1 \leq day\_taken \leq 31 $
+    \item $ 1 \leq month\_taken \leq 12 $
+    \item $ 2000 \leq year\_taken \leq 2014 $\\
 
-    \item $ 0 \leq hour_uploaded \leq 23 $
-    \item $ 1 \leq day_uploaded \leq 31 $
-    \item $ 1 \leq month_uploaded \leq 12 $
-    \item $ 2000 \leq year_uploaded \leq 2014 $\\
+    \item $ 0 \leq hour\_uploaded \leq 23 $
+    \item $ 1 \leq day\_uploaded \leq 31 $
+    \item $ 1 \leq month\_uploaded \leq 12 $
+    \item $ 2000 \leq year\_uploaded \leq 2014 $\\
 \end{itemize}
 
 Notons ici que seules les prises effectuées depuis l'an 2000 sont acceptées. On observe en effet que la densité de prise des photos par année augmente fortement dans les années 2000.
@@ -103,15 +78,19 @@ Afin de viser les flux touristiques les plus récents, il serait par ailleurs pe
 
 Dans un souci de cohérence des données finales, on supprime ensuite toutes les lignes dont la date de prise est postérieure à la date d'upload (notons ici que les champs heure et minute ne sont pas comparés, des conflits dus aux heures locales des appareils photos des touristes et/ou du serveur distant pouvant être observés).
 
-Pour cela deux composants \textbf{Java Snippet} sont utilisés, dans le but de créer deux colonnes (date_taken et date_uploaded) contenant un champ date sous forme de String :
-\begin{itemize}
-    \item \begin{lstlisting}return String.format("%d/%d/%d", $day_taken$, $month_taken$, $year_taken$);\end{lstlisting}
-    \item \begin{lstlisting}return String.format("%d/%d/%d", $day_uploaded$, $month_uploaded$, $year_uploaded$);\end{lstlisting}
-\end{itemize}
+Pour cela deux composants \textbf{Java Snippet} sont utilisés, dans le but de créer deux colonnes (date\_taken et date\_uploaded) contenant un champ date sous forme de String :
+
+\begin{lstlisting}
+    return String.format("%d/%d/%d", $day_taken$, $month_taken$, $year_taken$);
+\end{lstlisting}
+
+\begin{lstlisting}
+    return String.format("%d/%d/%d", $day_uploaded$, $month_uploaded$, $year_uploaded$);
+\end{lstlisting}
 
 Deux blocs \textbf{String to Date/Time} permettent alors de transformer au format date les chaînes de caractère initialement de format <dd/MM/yyyy>
 
-Un bloc \textbf{Column Comparator} effectue ensuite la comparaison suivante afin d'initialiser une nouvelle colonne date_compare :
+Un bloc \textbf{Column Comparator} effectue ensuite la comparaison suivante afin d'initialiser une nouvelle colonne date\_compare :
 \begin{lstlisting}
     if(date_uploaded $\heq$ date_taken) {
         date_compare = 'true'
@@ -120,12 +99,12 @@ Un bloc \textbf{Column Comparator} effectue ensuite la comparaison suivante afin
     }
 \end{lstlisting}
 
-Un dernier \textbf{Row Filter} permet enfin de n'accepter que les lignes dont la valeur du champ date_compare est à \'true\'.
+Un dernier \textbf{Row Filter} permet enfin de n'accepter que les lignes dont la valeur du champ date\_compare est à "true" .
 
 563 lignes sont supprimées lors du filtre de comparaison des dates de prise et d'upload (59 585 lignes restantes).\\
 
 \subsection{Gestion des doublons}
-Afin de supprimer les doublons, un composant \ŧextbf{GroupBy} est enfin appliqué sur la colonne <id>. En ne retenant que les premières valeurs de chaque groupe pour chaque colonne, ce filtre supprime 31 ligne, amenant le nombre de lignes total à 59 554.
+Afin de supprimer les doublons, un composant \textbf{GroupBy} est enfin appliqué sur la colonne <id>. En ne retenant que les premières valeurs de chaque groupe pour chaque colonne, ce filtre supprime 31 ligne, amenant le nombre de lignes total à 59 554.
 
 \subsection{Mélange}
 De par leur complexité, les clustering ultérieurs pourront ne s'appliquer que sur un nombre limité de lignes. Afin d'éviter des résultats faussés par des données non représentatives, le composant \textbf{Shuffle} nous permet ici de mélanger les lignes des données.
@@ -143,9 +122,9 @@ Pour ce faire, différents flux de traitement ont été mis en place, prenant en
 
 \subsection{K-Means}
 \subsubsection{K-Means appliqué à l'ensemble des données}
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{img/knime_k-means_all.png}
+    \includegraphics[width=0.5\linewidth]{img/knime_k-means_all.png}
     \caption{Flux de traitement dédié au clustering par K-Means}
 \end{figure}
 
@@ -154,9 +133,10 @@ Le composant \textbf{Column Filter} ne conserve que les colonnes latitude et lon
 Le composant \textbf{k-Means} est utilisé pour réaliser 60 clusters en un maximum de 99 itérations à partir des colonnes latitude et longitude des données en entrée.
 
 Le nombre de cluster ici utilisé est probablement insuffisant en comparaison du nombre de points d'intérêts potentiel sur Lyon, mais se trouve limité par le bloc \textbf{Color Manager}, lequel est utilisé afin d'assigner une couleur à chaque chaîne de caractère unique de la colonne <cluster> crée par k-means, et ne peut générer automatiquement plus de 60 couleurs pour nos valeurs.
+\pagebreak
 
 Le \textbf{Scatter Plot} affiche ensuite les résultats suivants :
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{img/60_means_all.png}
     \caption{Résultats de K-Means, 60 clusters, 59 554 lignes}
@@ -165,7 +145,7 @@ Le \textbf{Scatter Plot} affiche ensuite les résultats suivants :
 Comme attendu, ces résultats sont peu probants, notamment de par la présence de cluster de très faible densité.
 
 Notons que ce clustering, appliqué sur des données ne restreignant pas la latitude et longitude à la ville de Lyon, donne les résultats suivants :
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{img/60_means_large.png}
     \caption{Résultats de K-Means, 60 clusters, 82 199 lignes}
@@ -181,16 +161,16 @@ Une approche de clustering orientée par plages horaire trouve son intérêt vis
 En premier lieu, on s'intéressera aux zones d'intérêt de jour, à savoir entre 6h et 21h.
 
 Pour ce faire, le flux de traitement suivant est utilisé :
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{img/knime_k-means_day.png}
+    \includegraphics[width=0.8\linewidth]{img/knime_k-means_day.png}
     \caption{Flux de traitement : K-Means appliqué sur une plage horaire de 6h à 21h}
 \end{figure}
 
 Un \textbf{Row Filter} a été ajouté au flux de traitement précédent, lequel n'accepte que les lignes dont l'heure de prise se situe entre 6h et 21h.
 
 Les résultats obtenus sont les suivants :
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{img/60_means_day.png}
     \caption{Résultats de K-Means, 60 clusters, 47 820 lignes}
@@ -203,7 +183,7 @@ De par le nombre de photos traité extrêmement proche des résultats précéden
 \subsubsection{K-Means appliqué aux données de nuit}
 Les zones d'intérêt de nuit (photos prises de 21h à 6h) peuvent en revanche être davantage exploitées. Pour un flux de traitement identique, le nombre de lignes est bien inférieur (11 734 lignes contre 59 554 initialement).
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{img/60_means_night.png}
     \caption{Résultats de K-Means, 60 clusters, 11 734 lignes}
@@ -229,22 +209,22 @@ Une approche par densité semble donc d'intérêt, et sera effectuée ultérieur
 \subsection{Clustering hiérarchique}
 Une approche par clustering hiérarchique est également envisageable. Néanmoins, de par le temps requis par ce clustering, seules 1 000 photos sont ici utilisées.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{img/knime_hierarchical.png}
+    \includegraphics[width=0.25\linewidth]{img/knime_hierarchical.png}
     \caption{Flux de traitement : Clustering hiérarchique sur 1 000 photos}
 \end{figure}
 
 Le clustering hiérarchique s'effectue sur la latitude et longitude, pour 90 clusters en sortie, la distance Euclidienne étant utilisée.
 
 Les résultats obtenus sont les suivants :
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{img/1000_histo1.png}
     \caption{Dendrogramme pour 1 000 lignes}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{img/1000_histo2.png}
     \caption{Distance entre les clusters pour 1 000 lignes}
@@ -258,7 +238,7 @@ Si l'on observe des regroupements certains, avec des clusters d'une intéressant
 \subsection{DBSCAN}
 Une approche par densité est à présent effectuée, utilisant l'algorithme DBSCAN.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{img/knime_dbscan.png}
     \caption{Flux de traitement : Clustering par DBSCAN}
@@ -276,55 +256,64 @@ Souhaitant expérimenter l'algorithme Mean Shift, utilisant une approche du clus
 \subsubsection{Export des données}
 Cet export se situe entre le bloc \textbf{Shuffle} et \textbf{Normalizer} (Voir \ref{knime_filter}).
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{img/knime_csvwriter.png}
+    \includegraphics[width=0.25\linewidth]{img/knime_csvwriter.png}
     \caption{Flux de traitement : Export des données au format CSV sous Knime}
 \end{figure}
 
-Le composant \textbf{String Replacer} permet de transformer les caractères \'\\n\' en la suite de caractères \'\\\\n\' dans le champ <legend> (utilisation d'une expression régulière).
+Le composant \textbf{String Replacer} permet de transformer les caractères $'\backslash n'$ en la suite de caractères $'\backslash \backslash n'$ dans le champ <legend> (utilisation d'une expression régulière).
 
 L'ensemble des données est ensuite exporté par le composant \textbf{CSV Writer}.
 
 \subsubsection{Mean Shift en Python}
 La librairie open source d'analyse de données \textbf{Pandas} a tout d'abord été utilisée afin de réaliser le parsing du document CSV et la manipulation de la matrice de données obtenue.
 
-L'algorithme \textbf{Mean Shift} de la librairie Python \textbf{SciKit-Learn} est ensuite appliqué sur la latitude et longitude, les données étant filtrées au préalable par Knime.
-
-
-
-
-voir pour noël
-\pagebreak
-
-
-\begin{figure}[h!]
-    \centering
-    %\includegraphics[width=\linewidth]{../../documents/evaluation/chiffrage.png}
-    \caption{Estimation du coût de réalisation de la solution}
-\end{figure}
-
+L'algorithme \textbf{Mean Shift} de la librairie Python \textbf{SciKit-Learn} est ensuite appliqué sur la latitude et longitude, les données étant filtrées au préalable par Knime.pour la construction d'une estimation nommée \textit{bandwidth}. Paramètres :
 \begin{itemize}
-    \item
-    \item
+    \item quantile : 0.005
+    \item n\_samples : None
 \end{itemize}
 
-TODO DBSCAN
+Une instance de la classe MeanShift est ensuite crée à l'aide de l'estimation bandwidth précédente et des paramètres suivants :
+\begin{itemize}
+    \item bin\_seeding : True
+    \item min\_bin\_freq : 30
+    \item cluster\_all : False
+\end{itemize}
+
+On supprime alors tous les clusters dont le nombre de points est inférieur à 30. La suppression du bruit et le filtre de nombre de points par cluster restreint le nombre de photos qui était initialement de 59 554 à 47 800.
+Les résultats suivants sont obtenusy :
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{img/meanshift.png}
+    \caption{Résultats du clustering par Mean Shift, 126 clusters, 47 800 photos}
+\end{figure}
+
+Comme on peut l'observer, l'approche par densité donne de bien meilleurs résultats. Le bruit n'est pas ici clusterisé et a été éliminé des résultats. Seuls les clusters de densité suffisante et ayant un certain nombre de points sont alors conservés. Toutefois, la validité de ce clustering devrait encore être vérifiée à l'aide d'outils tels Google Places.
+
+
+Au vu des résultats probants précédents, des clustering plus affinés peuvent également être envisagés. Ci-dessous, les points d'intérêts correspondant aux prises de photos réalisées entre le 6 et 9 Décembre inclus, ces dates correspondant à la Fête des Lumières sur Lyon, et de ce fait à un pic massif d'utilisation des transports en commun.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{img/meanshift_lumieres.png}
+    \caption{Résultats du clustering par Mean Shift, 60 clusters, 4 100 photos}
+\end{figure}
+
+Un rapprochement entre ces zones et les arrêts TCL les plus proches permettrait d'optimiser le désservissement des zones les plus visitées à cette époque de l'année.
+
+Le résultat de ces clustering est enfin exporté au format CSV afin d'être affiché grâce à un serveur Web.
 \pagebreak
 
-
-
-\section{Description des clusters}
-TODO : Google Places et gestion des tags ?
-\pagebreak
 
 
 \section{Visualisation des résultats}
+TODO Adrien
 \pagebreak
 
 
-\section{Interprétation des résultats}
-Comment votre analyse peut-elle aider le Grand Lyon ? Quelles connaissances lui apporte-t-elle ?
+\section{Description des clusters}
+TODO : Google Places ?
 \pagebreak
 
 
@@ -332,7 +321,5 @@ Comment votre analyse peut-elle aider le Grand Lyon ? Quelles connaissances lui 
 On a fait des trucs en plus ?
 - Détecter les évènements basés sur une date
 - Etudier la variation des flux touristiques au fil des ans
--
--
 => Passage à l’échelle ? Tâches prédictives ? Analyse dynamique et non statique ? Autres sources ? (Tweets, Instagram,…)
 \pagebreak

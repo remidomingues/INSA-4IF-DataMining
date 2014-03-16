@@ -25,7 +25,7 @@ def import_data(filepath):
 # Compute clustering with MeanShift
 def run_meanshift(data):
     print 'Clustering data (Meanshift algorithm)...'
-    bandwidth = estimate_bandwidth(data, quantile=0.005, n_samples=1000)
+    bandwidth = estimate_bandwidth(data, quantile=0.005, n_samples=None)
     ms = MeanShift(bandwidth=bandwidth, bin_seeding=True, min_bin_freq=30, cluster_all=False)
     ms.fit(data)
     return ms
@@ -62,9 +62,7 @@ def export_data(ms_data, clusters_file, cluster_centers, centers_file):
 
 if __name__ == "__main__":
     ms_data = import_data("data/knime_data.csv")
-
     ms_values = ms_data[['longitude', 'latitude']].values
-
 
     meanshift = run_meanshift(data=ms_values)
     ms_data['cluster'] = meanshift.labels_
@@ -97,7 +95,7 @@ if __name__ == "__main__":
 
 
 
-    # Removing clusters which contain less than x pointsnext(df.iterrows())[1]
+    # Removing clusters which contain less than x points
     for k in range(n_centers_):
         try:
             cluster_points = ms_data[(ms_data['cluster'] == k)]
@@ -108,6 +106,7 @@ if __name__ == "__main__":
             cluster_centers = cluster_centers[(cluster_centers['cluster'] != k)]
 
     print("> Number of estimated clusters: %d" % n_centers_)
+
 
     plot_meanshift(ms_data, cluster_centers, n_centers_)
 
