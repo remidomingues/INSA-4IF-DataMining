@@ -22,6 +22,8 @@
         var map;
        
         var flickr = [];
+        var points = [];
+        var circles = [];
         var clusters = [];
 
         //defines bounding box of all locations
@@ -40,52 +42,33 @@
         }
        
         //toggle array layers on/off
-        clustering.toggleArrayLayer = function(arraylayer)
+        clustering.toggleArrayLayer = function(arraylayer,cluster)
         {
             if (arraylayer) {
-                for (i in arraylayer) {                
-                    if (arraylayer[i].getVisible() == true)
-                    {
-                        arraylayer[i].setMap(null);
-                        arraylayer[i].visible = false;
-                    }
-                    else
-                    {
-                        arraylayer[i].setMap(map);
-                        arraylayer[i].visible = true;
-                    }
+                for (j in arraylayer) { 
+                    for (i in arraylayer[j])               
+                        if (j == cluster)
+                        {
+                            arraylayer[j][i].setMap(map);
+                            arraylayer[j][i].visible = true;
+                        }
+                        else
+                        {
+                            arraylayer[j][i].setMap(null);
+                            arraylayer[j][i].visible = false;
+                        }
                 }
             }
         }
        
-        //Function to create Flickr Marker
-        clustering.createFlickrMarker = function(i,latitude,longitude,infowindowcontent,icon)
+        clustering.createInfoWindow = function(urlPicture)
         {
-            var markerLatLng = new google.maps.LatLng(latitude,longitude);  
-            //extent bounds for each stop and adjust map to fit to it
-            bounds.extend(markerLatLng);
-            map.fitBounds(bounds);
-           
-            //set marker to be the flickr image, resizing it to 32 by 32 pixels
-            //var image = new google.maps.MarkerImage(icon, null, null, null, new google.maps.Size(32,32));
-           
-            //create and map the marker
-            flickr[i] = new google.maps.Marker({
-                position: markerLatLng,
-                map: map,
-                title: infowindowcontent,
-                icon: "http://maps.google.com/mapfiles/marker.png"
-            });
-           
-            //add an onclick event
-           /* google.maps.event.addListener(flickr[i], 'click', function() {
-                infowindow.setContent(infowindowcontent);
-                infowindow.open(map,flickr[i]);
-            });*/
+            return "<div><img source=\"" + urlPicture + "\"/></div>"
+
         }
 
-                //Function to create Flickr Marker
-        clustering.createFlickrCircle = function(i,latitude,longitude,infowindowcontent,icon)
+        //Function to create Flickr Marker
+        clustering.createFlickrMarker = function(j,i,latitude,longitude,infowindowcontent,icon)
         {
             var markerLatLng = new google.maps.LatLng(longitude,latitude);  
             //extent bounds for each stop and adjust map to fit to it
@@ -95,32 +78,75 @@
             //set marker to be the flickr image, resizing it to 32 by 32 pixels
             //var image = new google.maps.MarkerImage(icon, null, null, null, new google.maps.Size(32,32));
            
-            //create and map the clusters
-            clusters[i] = new google.maps.Circle({
+            //create and map the marker
+            points[j*i] = new google.maps.Marker({
                 position: markerLatLng,
                 map: map,
-                radius: 800,    // 800 meters
-                fillColor: '#AA0000'
+                title: infowindowcontent,
+                visible : false,
+                icon: "http://maps.google.com/mapfiles/marker.png",
             });
-           
+           points[j*i].url = infowindowcontent;
+           flickr[j]=points[i*j];
             //add an onclick event
-           /* google.maps.event.addListener(flickr[i], 'click', function() {
-                infowindow.setContent(infowindowcontent);
-                infowindow.open(map,flickr[i]);
-            });*/
+            google.maps.event.addListener(points[j*i], 'click', function() {
+                infowindow.setContent(clustering.createInfoWindow(points[j*i].url));
+                infowindow.open(map,points[j*i]);
+            });
         }
-               
+
+                //Function to create Flickr Marker
+        clustering.createFlickrCircle = function(i,latitude,longitude, infowindowcontent,icon)
+        {
+            var markerLatLng = new google.maps.LatLng(longitude,latitude);  
+            //extent bounds for each stop and adjust map to fit to it
+            bounds.extend(markerLatLng);
+            map.fitBounds(bounds);
+            //set marker to be the flickr image, resizing it to 32 by 32 pixels
+            //var image = new google.maps.MarkerImage(icon, null, null, null, new google.maps.Size(32,32));
+
+            //create and map the marker
+            marker = new google.maps.Marker({
+                position: markerLatLng,
+                map: map,
+                visible : false,
+            });
+
+            //create and map the clusters
+            circles[i] = new google.maps.Circle({
+                map: map,           
+                radius: 100 + Math.floor((Math.random()*60)) ,    // 800 meters
+                title: infowindowcontent,
+                fillColor: '#' + Math.random().toString(16).substring(2, 8),
+                strokeWeight : 2,
+                strokeColor : '#FFFFFF',
+                strokeOpacity : 0.5,
+            });
+            circles[i].bindTo('center', marker, 'position');
+            circles[i].marker=marker;
+
+            //add an onclick event
+            google.maps.event.addListener(circles[i], 'click', function() {
+                infowindow.setContent(infowindowcontent);
+                infowindow.open(map,circles[i].marker);
+                clustering.toggleArrayLayer(clusters,i);
+            });
+        }
+
         //Function to get data from Flickr
         clustering.getFlickr = function(search)
         {
             bounds = new google.maps.LatLngBounds ();
             $.getJSON("/mapPoint", function(data){  
                     $.each(data, function(i, s) {
-                        console.log("ffdsgdsf")
-                        clustering.createFlickrCircle(s[0][0]  , s[0][1][1], s[0][1]|[0] ) //cluster name, lat, long
-                           /* s[1].each(point, function(j, r) {
-                                clustering.createFlickrMarker(j,r[0], r[1], null, null)
-                            })*/
+                        clustering.createFlickrCircle(i, s[0][1][0], s[0][1][1], "blabla",null) //cluster name, lat, long
+                            $.each(s[1], function(j, r) {
+                                clustering.createFlickrMarker(j,i,r[0], r[1], r[3], null)
+                                return j<20
+                            }) 
+                            clusters[i]=flickr;
+                            flickr=[];
+
                     })
                 })
         }
@@ -134,19 +160,22 @@
                 center: latlng,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
+
             map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
            
             //Sample call for yelp data for cafe's
             clustering.getFlickr('bus');
+
         }
     </script>
 </head>
-
+       
 <body onload="clustering.initialize()">
     <!-- side panel div container -->
     <div style="position:absolute; width:380px; height: 100%; overflow:auto; float:left; padding-left:10px; padding-right:10px;">
-        <h1>Flickr API</h1>
-        <input type="checkbox" id="toggleFlickr" onClick="clustering.toggleArrayLayer(flickr)" checked> flickr layer
+        <!--<h1>Flickr API</h1>
+        /<input type="checkbox" id="toggleFlickr" onClick="clustering.toggleArrayLayer(clusters)" checked> flickr layer<h1>Circle API</h1>
+        <input type="checkbox" id="toggleCircle" onClick="clustering.toggleArrayLayer(clusters)" checked> Clusters layer-->
     </div>
     <!-- map div container -->
 
