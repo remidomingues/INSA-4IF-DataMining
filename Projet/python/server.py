@@ -43,6 +43,7 @@ def generatePoints():
         for cluster in result :
             for point in cluster[1] :
                 point[1] = point[1]+0.0005-(random.randint(0,10)/10000.0)#max_cluster(cluster[1],cluster[0][1])
+                point[0] = point[0]+0.0005-(random.randint(0,10)/10000.0)#max_cluster(cluster[1],cluster[0][1])
 
         return json.dumps(result)
 

@@ -121,14 +121,15 @@
                 strokeWeight : 2,
                 strokeColor : '#FFFFFF',
                 strokeOpacity : 0.5,
+                fillOpacity : 0.6,
             });
             circles[i].bindTo('center', marker, 'position');
             circles[i].marker=marker;
 
             //add an onclick event
             google.maps.event.addListener(circles[i], 'click', function() {
-                infowindow.setContent(infowindowcontent);
-                infowindow.open(map,circles[i].marker);
+               // infowindow.setContent(infowindowcontent);
+                //infowindow.open(map,circles[i].marker);
                 clustering.toggleArrayLayer(clusters,i);
             });
         }
