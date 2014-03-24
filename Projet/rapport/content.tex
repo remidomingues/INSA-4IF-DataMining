@@ -250,12 +250,10 @@ Toutefois, une approche intéressante pourrait être de déterminer un ensemble 
 
 \subsection{DBSCAN}
 Une approche par densité est à présent effectuée, utilisant l'algorithme DBSCAN.
+Rappelons que DBScan utilise deux paramètres afin de calculer des clusters, que sont une distance epsilon, et un nombre minimum de point MinPoints. Le fonctionnement de cet algorithme repose sur ce principe : on recherche les points dont les voisins à une distance inférieur à espilon sont au moins au nombre de minPoint. On part d'un point, et on cherche ainsi tous les points qui sont ses voisins, auquel on applique l'algorithme jusqu'à ne plus avoir assez de voisins. Les points parcourus et vérifiants le nombre de voisins minimum feront alors partie du même cluster.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{img/knime_dbscan.png}
-    \caption{Flux de traitement : Clustering par DBSCAN}
-\end{figure}
+Il est intéressant d'amener une première reflexion quant à l'efficacité de notre DBScan dès lors que nous avons les informations sur son algorithme de calcul. Si on fixe une valeur d'epsilon très faible, nous pourrons discerner des clusters dans un amas de point à forte densité. Si un autre amas possède une densité plus faible, le cluster risque d'être effacé du fait qu'il n'y aura pas minpoints au voisinage d'un point. On pourrait alors augmenter la valeur d'epsilon, mais de nouveau, nous nous retrouvons face à un poblème. A l'inverse, cette fois-ci, les zones à très forte densité ne formeront qu'un cluster car tous les points seront assez proches les uns des autres pour être en dessous de la barre de epsilon.
+Nous allons donc voir si il est possible de concillier ces deux points afin d'obtenir un clustering correct. 
 
 \begin{figure}[H]
     \centering
@@ -263,11 +261,24 @@ Une approche par densité est à présent effectuée, utilisant l'algorithme DBS
     \caption{Lalalilu}
 \end{figure}
 
+Nous obtenons tout d'abord un premier résultat satisfaisant, mais seulement pour les clusters externes à ce qu'on pourrait identifier comme le centre de lyon au vu de la densité de photos. En effet, on observe dans le périphérique du grand lyon des clusters bien identifiés, mais un seul cluster est identifié pour l'ensemble des points apparaissants au centre de l'image. Ce n'est pas ce que nous cherchons. Il faut alors affiner la distance, afin de pouvoir les séparer.
+
+
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{img/dbscan_21.png}
     \caption{Lalalilu}
 \end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{img/knime_dbscan.png}
+    \caption{Flux de traitement : Clustering par DBSCAN}
+\end{figure}
+
+
 
 IMPORTANT : TODO ADRIEN !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 Indiquer que DBSCAN n'est pas performant pour des clusters de densité différente (c'est dans le cours), comme pour le centre de Lyon
