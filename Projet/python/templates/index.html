@@ -25,7 +25,7 @@
         var points = [];
         var circles = [];
         var clusters = [];
-
+        var maxPoints = 20;
         //defines bounding box of all locations
         var bounds;
        
@@ -63,7 +63,7 @@
        
         clustering.createInfoWindow = function(urlPicture)
         {
-            return "<div><img source=\"" + urlPicture + "\"/></div>"
+            return "<div><img src=\""+urlPicture+"\"/ ></div>"
 
         }
 
@@ -77,21 +77,21 @@
            
             //set marker to be the flickr image, resizing it to 32 by 32 pixels
             //var image = new google.maps.MarkerImage(icon, null, null, null, new google.maps.Size(32,32));
-           
-            //create and map the marker
-            points[j*i] = new google.maps.Marker({
+           //create and map the marker
+            var k = i*maxPoints + j;
+            points[k] = new google.maps.Marker({
                 position: markerLatLng,
                 map: map,
                 title: infowindowcontent,
                 visible : false,
                 icon: "http://maps.google.com/mapfiles/marker.png",
             });
-           points[j*i].url = infowindowcontent;
-           flickr[j]=points[i*j];
+           points[k].url = infowindowcontent;
+           flickr[j]=points[k];
             //add an onclick event
-            google.maps.event.addListener(points[j*i], 'click', function() {
-                infowindow.setContent(clustering.createInfoWindow(points[j*i].url));
-                infowindow.open(map,points[j*i]);
+            google.maps.event.addListener(points[k], 'click', function() {
+                infowindow.setContent(clustering.createInfoWindow(points[k].url));
+                infowindow.open(map,points[k]);
             });
         }
 
@@ -143,7 +143,7 @@
                         clustering.createFlickrCircle(i, s[0][1][0], s[0][1][1], "blabla",null) //cluster name, lat, long
                             $.each(s[1], function(j, r) {
                                 clustering.createFlickrMarker(j,i,r[0], r[1], r[3], null)
-                                return j<20
+                                return j<maxPoints
                             }) 
                             clusters[i]=flickr;
                             flickr=[];
