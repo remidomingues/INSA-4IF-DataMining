@@ -195,19 +195,26 @@ Néanmoins, des clusters à faible densité subsistent, et le nombre de cluster 
 
 
 \subsection{Étude de K-Means}
-Si K-Means est un algorithme convergeant rapidement et efficace sur des données géolocalisées, celui-ci contient néanmoins un certain nombre d'inconvénients.
+K-Means est un algorithme convergeant rapidement et efficace sur des données géolocalisées, notamment dans le cas présent où la répartition des photos est de forme globulaire, celles-ci étant regroupée autour de points d'intérêts.\\
 
-Tout d'abord, le nombre de cluster devant être fixé, cette contrainte s'oppose ici à l'évaluation du nombre de points d'intérêts sur Lyon, ce nombre faisant justement parti des données recherchées.
+Néanmoins, celui-ci contient néanmoins un certain nombre d'inconvénients.
 
-Par ailleurs, Knime inclut le bruit dans ses clustering, d'où la présence de cluster de faible densité, ne comportant parfois aucun point d'intérêt manifeste.
+\begin{itemize}
+\item Tout d'abord, le nombre de cluster devant être fixé, cette contrainte s'oppose ici à l'évaluation du nombre de points d'intérêts sur Lyon, ce nombre faisant justement parti des données recherchées.
+
+\item Par ailleurs, K-means inclut le bruit dans son clustering, d'où la présence de cluster de faible densité, ne comportant parfois aucun point d'intérêt manifeste.
+
+\item Enfin, les limites de cet algorithme sont ici illustrées dans le cas de clusters de taille et de densité différente. Dans le cas du centre de Lyon par exemple, il s'agît d'un cluster de grande taille, et de densité variable. K-means est peu efficace et regroupe ici de nombreux points d'intérêt en un seul.\item
+\end{itemize}
 
 Une approche par densité semble donc d'intérêt, et sera effectuée ultérieurement.
+
 \pagebreak
 
 
 
 \subsection{Clustering hiérarchique}
-Une approche par clustering hiérarchique est également envisageable. Néanmoins, de par le temps requis par ce clustering, seules 1 000 photos sont ici utilisées.
+Une approche par clustering hiérarchique est également envisageable. Néanmoins, de par le temps requis par ce clustering, un échantillonnage à hauteur de 1 000 photos est ici utilisé.
 
 \begin{figure}[H]
     \centering
@@ -230,7 +237,13 @@ Les résultats obtenus sont les suivants :
     \caption{Distance entre les clusters pour 1 000 lignes}
 \end{figure}
 
+hierarchical : permet de choisir nbclusters, mais echantillonnage
+choisir centroides puis donnner à K-means
+
 Si l'on observe des regroupements certains, avec des clusters d'une intéressante densité, le choix du seuil de coupe de l'arbre du dendrogramme n'est pas aisé, la hauteur des clustering de densité variant fortement.
+Le choix du nombre de cluster est donc ici encore nécessaire, inconvénient dans le cas où l'un des buts du clustering est de déterminer le nombre et l'identité des points d'intérêt. Malgré un \textit{shuffle}, l'échantillonnage n'est par ailleurs pas forcément représentatif.
+
+Toutefois, une approche intéressante pourrait être de déterminer un ensemble de centroïdes basé sur une étude dudit dendrogramme, puis d'utiliser ceux-ci comme centroïdes initiaux pour l'algorithmes K-means. Les résultats dégagés par K-means pourraient alors en être améliorés.
 \pagebreak
 
 
@@ -257,6 +270,7 @@ Une approche par densité est à présent effectuée, utilisant l'algorithme DBS
 \end{figure}
 
 IMPORTANT : TODO ADRIEN !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Indiquer que DBSCAN n'est pas performant pour des clusters de densité différente (c'est dans le cours), comme pour le centre de Lyon
 \pagebreak
 
 
