@@ -261,9 +261,7 @@ Nous allons donc voir si il est possible de concillier ces deux points afin d'ob
     \caption{Lalalilu}
 \end{figure}
 
-Nous obtenons tout d'abord un premier résultat satisfaisant, mais seulement pour les clusters externes à ce qu'on pourrait identifier comme le centre de lyon au vu de la densité de photos. En effet, on observe dans le périphérique du grand lyon des clusters bien identifiés, mais un seul cluster est identifié pour l'ensemble des points apparaissants au centre de l'image. Ce n'est pas ce que nous cherchons. Il faut alors affiner la distance, afin de pouvoir les séparer.
-
-
+Nous obtenons tout d'abord un premier résultat satisfaisant, mais seulement pour les clusters externes à ce qu'on pourrait identifier comme le centre de lyon au vu de la densité de photos. En effet, on observe dans le périphérique du grand lyon des clusters bien identifiés, mais un seul cluster est identifié pour l'ensemble des points apparaissants au centre de l'image. Ce n'est pas ce que nous cherchons. Il faut alors affiner la distance, afin de pouvoir les séparer et obtenir des clusters plus fins .
 
 \begin{figure}[H]
     \centering
@@ -272,16 +270,18 @@ Nous obtenons tout d'abord un premier résultat satisfaisant, mais seulement pou
 \end{figure}
 
 
+Afin d'éviter de perdre les clusters de l'extérieur, il nous suffit de récupérer le cluster central, et de lui ré-appliquer DBScan, avec cette fois ci des valeurs plus fines. Nous obtenons alors le résultat précédent, sur lequel on observe des clusters intéressants !
+Cela donne sous Knime un schéma de cette forme :
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{img/knime_dbscan.png}
     \caption{Flux de traitement : Clustering par DBSCAN}
 \end{figure}
 
+Il faudrait dans l'idéal rediriger les deux sorties vers la même table, mais après quelques essaies non-fructueux, nous avons préféré en rester là, et se centrer sur K-Means pour la partie de visualisation.
+Nous pouvons conclure, comme vu dans le cours, que DBScan n'est pas performant pour identifier des clusters sur des données à densité variable, comme c'est le cas ici entre le centre de lyon et le périphérique.
 
-
-IMPORTANT : TODO ADRIEN !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-Indiquer que DBSCAN n'est pas performant pour des clusters de densité différente (c'est dans le cours), comme pour le centre de Lyon
 \pagebreak
 
 
@@ -345,7 +345,7 @@ Le résultat de ces clustering est enfin exporté au format CSV afin d'être aff
 
 
 \section{Visualisation des résultats}
-TODO Adrien
+
 \pagebreak
 
 
