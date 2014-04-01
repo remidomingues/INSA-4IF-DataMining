@@ -258,7 +258,7 @@ Nous allons donc voir si il est possible de concillier ces deux points afin d'ob
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{img/dbscan_50.png}
-    \caption{Lalalilu}
+    \caption{Visualisation des clusters de bordure de Lyon}
 \end{figure}
 
 Nous obtenons tout d'abord un premier résultat satisfaisant, mais seulement pour les clusters externes à ce qu'on pourrait identifier comme le centre de lyon au vu de la densité de photos. En effet, on observe dans le périphérique du grand lyon des clusters bien identifiés, mais un seul cluster est identifié pour l'ensemble des points apparaissants au centre de l'image. Ce n'est pas ce que nous cherchons. Il faut alors affiner la distance, afin de pouvoir les séparer et obtenir des clusters plus fins .
@@ -266,7 +266,7 @@ Nous obtenons tout d'abord un premier résultat satisfaisant, mais seulement pou
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{img/dbscan_21.png}
-    \caption{Lalalilu}
+    \caption{Visualisation des clusters du centre de Lyon}
 \end{figure}
 
 
@@ -346,17 +346,40 @@ Le résultat de ces clustering est enfin exporté au format CSV afin d'être aff
 
 \section{Visualisation des résultats}
 
+Afin de visualiser nos clusters, nous utilisons l'API Google Map, qui nous permet de placer des points sur une carte et d'intérargir avec ces derniers afin d'obtenir des informations.
+Nous procédons comme cela : les clusters sont représentés par des cercles de couleurs, lors d'un clic sur ces cercles, nous affichons les points représentants le lieu de prise d'une photo. Lors du clic sur le marqueur de lieu, la photo s'affiche.
+
+Nous pouvons observer la concentration des clusters au centre de Lyon et sur les bords des fleuves.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{img/ggmap_3.png}
+    \caption{Résultats du clustering par Mean Shift, sur googleMap}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{img/ggmap_2.png}
+    \caption{Résultats du clustering par Mean Shift, sur googleMap, plan resserré}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{img/ggmap_4.png}
+    \caption{Résultats du clustering par Mean Shift, sur googleMap}
+\end{figure}
+
 \pagebreak
 
 
-\section{Description des clusters}
-TODO : Google Places ?
-\pagebreak
+Il est appréciable de pouvoir visualiser concrêtement ces données sur une carte. Nous avons essayé de fournir un service permettant à une personne se trouvant dans un lieu de pouvoir avoir une indication sur les lieux qu'elle pourrait ensuite visiter, grâce à une analyse des mouvements des utilisateurs de flickr, mais cela n'a pas abouti par manque de temps. Il aurait été intéressant de reconnaître des parcours \"types\" au coeur de Lyon. 
 
 
-\section{Something ?}
-On a fait des trucs en plus ?
-- Détecter les évènements basés sur une date
-- Etudier la variation des flux touristiques au fil des ans
-=> Passage à l’échelle ? Tâches prédictives ? Analyse dynamique et non statique ? Autres sources ? (Tweets, Instagram,…)
+\section{Conclusion}
+
+Pour conclure, nous avons pu observer la bonne application de K-means sur notre problème, qui a pu mener avec succès à une visualisation de points d'intérêts au sein de Lyon, représentés par des clusters de points de prise de photos. L'application de DB-Scan s'est avérée directement moins efficace, il a fallut contourner son principal défaut par une séparation des données afin de les traiter sur deux plans différents.
+L'intégration à Google Map a ensuite été possible après une étude de l'API, et une familiarisation qui n'était pas encore évolué avec le javascript. L'utilisation du langage Python n'a pas posé de problème puisque nous étions tous deux compétents dans le domaine.
+
+
 \pagebreak
+

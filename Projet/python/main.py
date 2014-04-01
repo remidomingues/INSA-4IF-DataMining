@@ -4,7 +4,7 @@ import parser
 import plot
 from pandas import *
 from numpy import array, isfinite
-
+import operator
 from sklearn.cluster import MeanShift, estimate_bandwidth
 
 import numpy as np
@@ -88,7 +88,7 @@ if __name__ == "__main__":
                 tags[tag] += 1
 
         tags = {key : value for key, value in tags.iteritems() if value >= 10}
-        tags_list.append(str(tags))
+        tags_list.append(str(sorted(tags.iteritems(), key=operator.itemgetter(1)).reverse()))
 
     cluster_centers['tags'] = tags_list
     n_centers_ = len(cluster_centers)

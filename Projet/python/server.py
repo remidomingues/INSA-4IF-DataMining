@@ -34,7 +34,7 @@ def generatePoints():
         table_points = table_points.fillna('').values.tolist()
 
         points = pandas.read_csv(filepath_or_buffer=filepathClusters)  # Read the file
-        table_clusters = points[['longitude','latitude', 'cluster']].fillna('').values.tolist()
+        table_clusters = points[['longitude','latitude','cluster', 'tags']].fillna('').values.tolist()
 
 
         # now creating a list of objects in this form : [cluster_number, center point] , [list of the points contained in this cluster]
