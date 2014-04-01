@@ -1,7 +1,0 @@
-Le fichier villes.csv provient du site :
-
-	http://www.pillot.fr/cartographe/fic_villes.php
-
-qui se base sur les données de 
-
-	http://www.galichon.com/codesgeo/
